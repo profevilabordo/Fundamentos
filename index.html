@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fundamentos de Gestión - Unidad 1 | EETP N°602</title>
-    <style>
+   <style>
         * {
             margin: 0;
             padding: 0;
@@ -41,6 +41,51 @@
             color: #64748b;
             font-size: 1.2em;
             font-weight: normal;
+        }
+
+        .unit-selector {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .unit-btn {
+            flex: 1;
+            min-width: 150px;
+            padding: 15px;
+            background: #f1f5f9;
+            border: 3px solid #cbd5e1;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-weight: bold;
+            color: #475569;
+        }
+
+        .unit-btn:hover {
+            background: #e0e7ff;
+            border-color: #818cf8;
+            transform: translateY(-3px);
+        }
+
+        .unit-btn.active {
+            background: #dbeafe;
+            border-color: #2563eb;
+            color: #1e40af;
+        }
+
+        .unit-btn.completed {
+            background: #d1fae5;
+            border-color: #10b981;
+            color: #065f46;
+        }
+
+        .unit-btn .progress-mini {
+            font-size: 0.85em;
+            color: #64748b;
+            margin-top: 5px;
         }
 
         .progress-bar {
@@ -81,8 +126,14 @@
 
         .sidebar h3 {
             color: #2563eb;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             font-size: 1.3em;
+        }
+
+        .sidebar .unit-title {
+            font-size: 0.9em;
+            color: #64748b;
+            margin-bottom: 20px;
         }
 
         .nav-item {
@@ -137,6 +188,21 @@
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        .coming-soon {
+            text-align: center;
+            padding: 100px 20px;
+            color: #64748b;
+        }
+
+        .coming-soon h2 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .coming-soon p {
+            font-size: 1.3em;
         }
 
         .tag {
@@ -335,6 +401,14 @@
 
             .sidebar {
                 position: static;
+            }
+
+            .unit-selector {
+                flex-direction: column;
+            }
+
+            .unit-btn {
+                min-width: 100%;
             }
         }
     </style>
@@ -1326,7 +1400,7 @@
                     <p>Para cada tema, copia la siguiente guía en la carpeta:</p>
                     <p>🔵 Lo entiendo perfectamente | 🟡 Lo entiendo pero me cuesta | 🔴 No lo entiendo bien</p>
 
-                    <iframe src="https://gamma.app/embed/er229iqqcgqk5x8" style="width: 700px; max-width: 100%; height: 450px" allow="fullscreen" title="FUNDAMENTOS DE GESTIÓN"></iframe>
+                    <iframe src="https://gamma.app/embed/er229iqqcgqk5x8" style="width: 800px; max-width: 100%; height: 650px" allow="fullscreen" title="FUNDAMENTOS DE GESTIÓN"></iframe>
                     </div>
                 </div>
                 <!--Termina bloque 11-->
