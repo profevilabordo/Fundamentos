@@ -35,6 +35,8 @@
                 <div class="nav-item" onclick="showBlock(8)">Bloque 8: Indicadores</div>
                 <div class="nav-item" onclick="showBlock(9)">Bloque 9: Actividades</div>
                 <div class="nav-item" onclick="showBlock(10)">Bloque 10: Autoevaluación</div>
+                <div class="nav-item" onclick="showBlock(11)">Bloque 11: Recurso Visual</div>
+                <div class="nav-item" onclick="showBlock(12)">Bloque 12: Test Online</div>
             </div>
 
             <div class="content-area">
@@ -1902,6 +1904,7 @@
                     <h3>✅ Completá esta sección</h3>
                     <button onclick="markComplete(10)">Marcar Bloque 10 como Completado</button>
                 </div>
+                </div>
             </div>
   <!-- BLOQUE 11 dentro -->
                 <div class="content-block" id="block11">
@@ -1967,7 +1970,7 @@
     }
 
     function updateProgress() {
-        const percentage = Math.round((completedBlocks.length / 10) * 100);
+        const percentage = Math.round((completedBlocks.length / 12) * 100);
         const progressBar = document.getElementById('progressBar');
         progressBar.style.width = percentage + '%';
         progressBar.textContent = percentage + '% completado';
