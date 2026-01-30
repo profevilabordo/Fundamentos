@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario - Unidad 2: La Comunicación en las Organizaciones</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .pregunta {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .pregunta h3 {
+            color: #3498db;
+            margin-top: 0;
+        }
+        .opciones {
+            margin: 15px 0;
+        }
+        .opcion {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+        }
+        .opcion:hover {
+            background-color: #ecf0f1;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        label {
+            cursor: pointer;
+            display: block;
+        }
+        .boton-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        #resultado {
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            display: none;
+            text-align: center;
+            font-size: 18px;
+        }
+        .correcto {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .incorrecto {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>📋 Cuestionario - Unidad 2: La Comunicación en las Organizaciones</h1>
+    <p style="text-align: center; color: #7f8c8d;">Seleccioná la respuesta correcta para cada pregunta</p>
+
+    <form id="quizForm">
+        <!-- Pregunta 1 -->
+        <div class="pregunta">
+            <h3>1. ¿Cuál es el modelo clásico de comunicación?</h3>
+            <div class="opciones">
+                <div class="opcion">
+                    <label><input type="radio" name="q1" value="a"> Emisor → Mensaje → Receptor</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q1" value="b"> Emisor → Codificación → Mensaje → Canal → Decodificación → Receptor (con Retroalimentación y atravesado por Ruido)</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q1" value="c"> Persona A habla → Persona B escucha</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q1" value="d"> Información → Transmisión → Recepción</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pregunta 2 -->
+        <div class="pregunta">
+            <h3>2. ¿Qué es la codificación en el proceso de comunicación?</h3>
+            <div class="opciones">
+                <div class="opcion">
+                    <label><input type="radio" name="q2" value="a"> El proceso de recibir el mensaje</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q2" value="b"> El medio por el cual viaja el mensaje</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q2" value="c"> El proceso de convertir las ideas en un mensaje comprensible usando símbolos, palabras o gestos</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q2" value="d"> La respuesta del receptor al emisor</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pregunta 3 -->
+        <div class="pregunta">
+            <h3>3. ¿Qué es la retroalimentación (feedback)?</h3>
+            <div class="opciones">
+                <div class="opcion">
+                    <label><input type="radio" name="q3" value="a"> El ruido que distorsiona el mensaje</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q3" value="b"> La respuesta del receptor al emisor, cerrando el ciclo de comunicación</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q3" value="c"> El canal por donde se envía el mensaje</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q3" value="d"> El proceso de decodificación del mensaje</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pregunta 4 -->
+        <div class="pregunta">
+            <h3>4. ¿Cuál de los siguientes NO es un tipo de ruido en la comunicación?</h3>
+            <div class="opciones">
+                <div class="opcion">
+                    <label><input type="radio" name="q4" value="a"> Ruido físico (sonidos ambientales, mala señal)</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q4" value="b"> Ruido semántico (jerga técnica, ambigüedad)</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q4" value="c"> Ruido psicológico (estrés, prejuicios)</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q4" value="d"> Ruido temporal (tiempo meteorológico)</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pregunta 5 -->
+        <div class="pregunta">
+            <h3>5. La comunicación formal se caracteriza por:</h3>
+            <div class="opciones">
+                <div class="opcion">
+                    <label><input type="radio" name="q5" value="a"> Ser espontánea y sin registro</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q5" value="b"> Ser documentada, seguir protocolos y usar canales oficiales</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q5" value="c"> Ocurrir solo en el pasillo o en el comedor</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q5" value="d"> No tener consecuencias oficiales</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pregunta 6 -->
+        <div class="pregunta">
+            <h3>6. La comunicación descendente es:</h3>
+            <div class="opciones">
+                <div class="opcion">
+                    <label><input type="radio" name="q6" value="a"> De empleados hacia jefes</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q6" value="b"> Entre pares del mismo nivel</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q6" value="c"> De jefes/directivos hacia equipos/empleados</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q6" value="d"> Entre diferentes áreas sin importar el nivel</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pregunta 7 -->
+        <div class="pregunta">
+            <h3>7. ¿Qué tipo de comunicación ocurre cuando un empleado reporta un problema a su supervisor?</h3>
+            <div class="opciones">
+                <div class="opcion">
+                    <label><input type="radio" name="q7" value="a"> Comunicación descendente</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q7" value="b"> Comunicación ascendente</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q7" value="c"> Comunicación horizontal</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q7" value="d"> Comunicación externa</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pregunta 8 -->
+        <div class="pregunta">
+            <h3>8. La comunicación horizontal se refiere a:</h3>
+            <div class="opciones">
+                <div class="opcion">
+                    <label><input type="radio" name="q8" value="a"> Comunicación entre la dirección y los empleados</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q8" value="b"> Comunicación entre pares del mismo nivel jerárquico</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q8" value="c"> Comunicación con proveedores externos</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q8" value="d"> Comunicación solo escrita</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pregunta 9 -->
+        <div class="pregunta">
+            <h3>9. ¿Qué es la comunicación diagonal?</h3>
+            <div class="opciones">
+                <div class="opcion">
+                    <label><input type="radio" name="q9" value="a"> Comunicación solo entre directivos</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q9" value="b"> Comunicación transversal entre áreas y niveles diferentes</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q9" value="c"> Comunicación que siempre es informal</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q9" value="d"> Comunicación que está prohibida en las organizaciones</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pregunta 10 -->
+        <div class="pregunta">
+            <h3>10. ¿Cuál es una barrera física de la comunicación?</h3>
+            <div class="opciones">
+                <div class="opcion">
+                    <label><input type="radio" name="q10" value="a"> Prejuicios personales</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q10" value="b"> Jerga técnica incomprensible</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q10" value="c"> Ruido de máquinas o mala conectividad</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q10" value="d"> Jerarquías organizacionales rígidas</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pregunta 11 -->
+        <div class="pregunta">
+            <h3>11. Las barreras semánticas se refieren a:</h3>
+            <div class="opciones">
+                <div class="opcion">
+                    <label><input type="radio" name="q11" value="a"> Problemas de conexión a internet</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q11" value="b"> Problemas relacionados con el significado de las palabras, jerga técnica o ambigüedad</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q11" value="c"> Miedo a comunicar malas noticias</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q11" value="d"> Falta de canales de comunicación</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pregunta 12 -->
+        <div class="pregunta">
+            <h3>12. ¿Cuál de las siguientes es una barrera psicológica?</h3>
+            <div class="opciones">
+                <div class="opcion">
+                    <label><input type="radio" name="q12" value="a"> Distancia entre oficinas</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q12" value="b"> Uso de palabras técnicas</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q12" value="c"> Miedo, estrés, prejuicios o ego</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q12" value="d"> Exceso de reuniones</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pregunta 13 -->
+        <div class="pregunta">
+            <h3>13. Para una situación URGENTE e IMPORTANTE, ¿cuál es el canal de comunicación más adecuado?</h3>
+            <div class="opciones">
+                <div class="opcion">
+                    <label><input type="radio" name="q13" value="a"> Email</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q13" value="b"> Comunicación directa (llamada o cara a cara)</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q13" value="c"> Documento escrito para revisar después</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q13" value="d"> Cartelera de anuncios</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pregunta 14 -->
+        <div class="pregunta">
+            <h3>14. La comunicación sincrónica se caracteriza por:</h3>
+            <div class="opciones">
+                <div class="opcion">
+                    <label><input type="radio" name="q14" value="a"> Permitir respuesta diferida en el tiempo</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q14" value="b"> Requerir la presencia de todos al mismo tiempo</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q14" value="c"> Ser siempre informal</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q14" value="d"> No necesitar retroalimentación</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pregunta 15 -->
+        <div class="pregunta">
+            <h3>15. ¿Cuál es una ventaja de la comunicación asincrónica?</h3>
+            <div class="opciones">
+                <div class="opcion">
+                    <label><input type="radio" name="q15" value="a"> Feedback instantáneo</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q15" value="b"> Requiere disponibilidad simultánea</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q15" value="c"> Permite registro, orden y tiempo para pensar mejor la respuesta</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q15" value="d"> Interrumpe constantemente el trabajo</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pregunta 16 -->
+        <div class="pregunta">
+            <h3>16. Las 3 C's del feedback efectivo son:</h3>
+            <div class="opciones">
+                <div class="opcion">
+                    <label><input type="radio" name="q16" value="a"> Corto, Conciso, Completo</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q16" value="b"> Claro, Constructivo, Compasivo</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q16" value="c"> Correcto, Crítico, Continuo</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q16" value="d"> Concreto, Complejo, Constante</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pregunta 17 -->
+        <div class="pregunta">
+            <h3>17. ¿Qué lección principal nos deja el caso del Mars Climate Orbiter de la NASA?</h3>
+            <div class="opciones">
+                <div class="opcion">
+                    <label><input type="radio" name="q17" value="a"> Los errores técnicos son inevitables</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q17" value="b"> Nunca asumas que algo es obvio; documentá estándares y validá comprensión</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q17" value="c"> La tecnología espacial es muy cara</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q17" value="d"> Los ingenieros no saben trabajar en equipo</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pregunta 18 -->
+        <div class="pregunta">
+            <h3>18. ¿Cuál es un ejemplo de comunicación NO verbal?</h3>
+            <div class="opciones">
+                <div class="opcion">
+                    <label><input type="radio" name="q18" value="a"> Enviar un email</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q18" value="b"> Hacer una llamada telefónica</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q18" value="c"> Gestos, postura, tono de voz, puntualidad</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q18" value="d"> Escribir un informe</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pregunta 19 -->
+        <div class="pregunta">
+            <h3>19. ¿Qué es una barrera organizacional?</h3>
+            <div class="opciones">
+                <div class="opcion">
+                    <label><input type="radio" name="q19" value="a"> Ruido ambiental en la oficina</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q19" value="b"> Jerarquías rígidas, silos por áreas, burocracia excesiva</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q19" value="c"> Miedo a comunicar</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q19" value="d"> Uso de lenguaje técnico</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pregunta 20 -->
+        <div class="pregunta">
+            <h3>20. ¿Por qué es importante medir indicadores de comunicación organizacional?</h3>
+            <div class="opciones">
+                <div class="opcion">
+                    <label><input type="radio" name="q20" value="a"> Solo para cumplir con requisitos burocráticos</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q20" value="b"> Para identificar problemas, mejorar procesos y asegurar efectividad</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q20" value="c"> No es importante, la comunicación es algo natural</label>
+                </div>
+                <div class="opcion">
+                    <label><input type="radio" name="q20" value="d"> Solo para reportar a la dirección</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="boton-container">
+            <button type="button" onclick="calcularResultado()">📊 Ver Resultado</button>
+        </div>
+
+        <div id="resultado"></div>
+    </form>
+
+    <script>
+        const respuestasCorrectas = {
+            q1: 'b',
+            q2: 'c',
+            q3: 'b',
+            q4: 'd',
+            q5: 'b',
+            q6: 'c',
+            q7: 'b',
+            q8: 'b',
+            q9: 'b',
+            q10: 'c',
+            q11: 'b',
+            q12: 'c',
+            q13: 'b',
+            q14: 'b',
+            q15: 'c',
+            q16: 'b',
+            q17: 'b',
+            q18: 'c',
+            q19: 'b',
+            q20: 'b'
+        };
+
+        function calcularResultado() {
+            let correctas = 0;
+            let total = 20;
+            let sinResponder = [];
+
+            for (let i = 1; i <= total; i++) {
+                const pregunta = 'q' + i;
+                const respuestaUsuario = document.querySelector(`input[name="${pregunta}"]:checked`);
+                
+                if (respuestaUsuario) {
+                    if (respuestaUsuario.value === respuestasCorrectas[pregunta]) {
+                        correctas++;
+                    }
+                } else {
+                    sinResponder.push(i);
+                }
+            }
+
+            const porcentaje = (correctas / total * 100).toFixed(1);
+            const resultado = document.getElementById('resultado');
+            
+            let mensaje = '';
+            let clase = '';
+
+            if (sinResponder.length > 0) {
+                mensaje = `⚠️ Te faltan responder ${sinResponder.length} pregunta(s): ${sinResponder.join(', ')}`;
+                clase = 'incorrecto';
+            } else {
+                mensaje = `<strong>Resultado: ${correctas} de ${total} correctas (${porcentaje}%)</strong><br><br>`;
+                
+                if (porcentaje >= 90) {
+                    mensaje += '🎉 ¡Excelente! Dominás muy bien los conceptos de comunicación organizacional.';
+                    clase = 'correcto';
+                } else if (porcentaje >= 70) {
+                    mensaje += '👍 ¡Muy bien! Tenés un buen conocimiento de la unidad.';
+                    clase = 'correcto';
+                } else if (porcentaje >= 50) {
+                    mensaje += '📚 Bien, pero te recomiendo repasar algunos conceptos clave.';
+                    clase = '';
+                } else {
+                    mensaje += '📖 Te recomiendo repasar la unidad con más detalle.';
+                    clase = 'incorrecto';
+                }
+            }
+
+            resultado.innerHTML = `<div class="${clase}">${mensaje}</div>`;
+            resultado.style.display = 'block';
+            resultado.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    </script>
+</body>
+</html>
