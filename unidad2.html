@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad 2: La Comunicación | Fundamentos de Gestión 2026</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-button">← Volver al inicio</a>
+
+        <div class="header">
+            <h1>📡 UNIDAD 2: La Comunicación en las Organizaciones</h1>
+            <h2>4° Informática A | Prof. Verónica Vila Bordó</h2>
+            <h2>E.E.T.P. N° 602 - Venado Tuerto</h2>
+            
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar">0% completado</div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="sidebar">
+                <h3>📡 UNIDAD 2</h3>
+                <p class="unit-title">La Comunicación</p>
+                
+                <div class="nav-item active" onclick="showBlock(1)">Bloque 1: Presentación</div>
+                <div class="nav-item" onclick="showBlock(2)">Bloque 2: El Proceso</div>
+                <div class="nav-item" onclick="showBlock(3)">Bloque 3: Elementos</div>
+                <div class="nav-item" onclick="showBlock(4)">Bloque 4: Formas</div>
+                <div class="nav-item" onclick="showBlock(5)">Bloque 5: Direcciones</div>
+                <div class="nav-item" onclick="showBlock(6)">Bloque 6: Barreras</div>
+                <div class="nav-item" onclick="showBlock(7)">Bloque 7: Herramientas</div>
+                <div class="nav-item" onclick="showBlock(8)">Bloque 8: Indicadores</div>
+                <div class="nav-item" onclick="showBlock(9)">Bloque 9: Actividades</div>
+                <div class="nav-item" onclick="showBlock(10)">Bloque 10: Autoevaluación</div>
+            </div>
+
+            <div class="content-area">
+                
+                <!-- ============================================ -->
+                <!-- BLOQUE 1: PRESENTACIÓN -->
+                <!-- ============================================ -->
+                <div class="content-block active" id="block1">
+                    <h2>📖 PRESENTACIÓN DE LA UNIDAD 2</h2>
+                    
+                    <h3>¿Qué vamos a aprender en esta unidad?</h3>
+                    <p>En la Unidad 1 aprendimos qué son las organizaciones, sus elementos y características. Ahora, en esta unidad, vamos a profundizar en <strong>uno de los elementos más críticos</strong>: <strong>la comunicación</strong>.</p>
+                    
+                    <p>Sin comunicación efectiva, una organización no puede funcionar. No importa qué tan buenos sean los recursos, las personas o los objetivos: si la comunicación falla, todo falla.</p>
+                    
+                    <p>Como futuros <strong>Técnicos en Informática</strong>, van a trabajar en equipos de desarrollo, van a tener que comunicarse con clientes, reportar a jefes, coordinar con diseñadores y testers. La comunicación técnica efectiva es <strong>una de las habilidades más valoradas</strong> en el mundo IT.</p>
+
+                    <h3>🎯 OBJETIVOS DE APRENDIZAJE</h3>
+                    <p>Al finalizar esta unidad, vas a poder:</p>
+                    <ul>
+                        <li>Comprender el proceso de comunicación y sus elementos</li>
+                        <li>Identificar las diferentes formas y direcciones de comunicación organizacional</li>
+                        <li>Distinguir entre comunicación formal e informal</li>
+                        <li>Reconocer barreras de comunicación y cómo superarlas</li>
+                        <li>Aplicar herramientas de comunicación efectiva</li>
+                        <li>Analizar indicadores de comunicación en organizaciones reales</li>
+                    </ul>
+
+                    <h3>👉 CONEXIÓN CON LA REALIDAD</h3>
+                    
+                    <h4>¿Dónde aparece este tema en tu vida?</h4>
+                    <ul>
+                        <li>Cuando un <strong>proyecto de software fracasa</strong> → Generalmente es por mala comunicación, no por falta de habilidades técnicas</li>
+                        <li>Cuando trabajás en <strong>equipo en un proyecto</strong> → La comunicación define si sale bien o mal</li>
+                        <li>Cuando hay <strong>malentendidos en tu familia o amigos</strong> → Es un problema de comunicación</li>
+                        <li>Cuando un <strong>cliente no entiende lo que le explicas</strong> → Falla en la comunicación técnica</li>
+                    </ul>
+
+                    <h4>¿Dónde vas a usar esto en tu futuro?</h4>
+                    <p>Como Técnico en Informática vas a:</p>
+                    <ul>
+                        <li><strong>Daily standups</strong> → Comunicar qué hiciste, qué harás, qué te bloquea</li>
+                        <li><strong>Code reviews</strong> → Comunicar feedback técnico sin ofender</li>
+                        <li><strong>Reportar bugs</strong> → Comunicar problemas de forma clara y precisa</li>
+                        <li><strong>Documentar código</strong> → Comunicar a futuros desarrolladores</li>
+                        <li><strong>Atención a usuarios</strong> → Comunicar soluciones técnicas en lenguaje simple</li>
+                        <li><strong>Reuniones con clientes</strong> → Comunicar avances, tiempos, costos</li>
+                    </ul>
+
+                    <h4>¿Por qué te conviene dominar esto?</h4>
+                    <p>📌 <strong>Dato clave:</strong> El 70% de los proyectos IT que fracasan, fracasan por <strong>problemas de comunicación</strong>, no por problemas técnicos.</p>
+                    
+                    <p>Podés ser el mejor programador del mundo, pero:</p>
+                    <ul>
+                        <li>Si no sabés comunicar tus ideas → No te van a contratar</li>
+                        <li>Si no sabés trabajar en equipo → No vas a durar en la empresa</li>
+                        <li>Si no sabés explicar problemas → No te van a ascender</li>
+                    </ul>
+                    
+                    <p><strong>La comunicación efectiva es la diferencia entre un programador junior y un senior.</strong></p>
+
+                    <h3>🔥 PREGUNTAS DISPARADORAS</h3>
+                    <p>Antes de empezar, pensá en esto:</p>
+                    <ol>
+                        <li>¿Por qué en algunas empresas todos saben qué está pasando y en otras nadie sabe nada?</li>
+                        <li>¿Alguna vez trabajaste en grupo y el resultado fue un desastre porque nadie se entendía? ¿Qué falló exactamente?</li>
+                        <li>¿Por qué a veces enviás un mensaje claro pero la otra persona entiende otra cosa completamente diferente?</li>
+                        <li>En equipos de desarrollo ágil (Scrum), ¿por qué hay tantas reuniones si "reuniones = pérdida de tiempo"?</li>
+                    </ol>
+                    
+                    <p><em>No respondas todavía. Mientras avances en la unidad, vas a poder contestarlas con fundamentos.</em></p>
+
+                    <div class="info-box sabias">
+                        <h4>💡 ¿LO SABÍAS? - El costo de la mala comunicación</h4>
+                        <p>Un estudio de <strong>Project Management Institute</strong> reveló que:</p>
+                        <ul>
+                            <li><strong>$135 millones</strong> se pierden por cada <strong>$1.000 millones</strong> invertido en proyectos debido a <strong>mala comunicación</strong></li>
+                            <li>El <strong>56% de los presupuestos</strong> están en riesgo por comunicación inefectiva</li>
+                            <li>Las empresas con comunicación efectiva tienen <strong>47% más de retorno para los accionistas</strong></li>
+                        </ul>
+                        
+                        <p><strong>En el mundo tech:</strong></p>
+                        <ul>
+                            <li>El bug más caro de la historia costó <strong>$460 millones</strong> (Mars Climate Orbiter, 1999) → Un equipo usó el sistema métrico y otro el imperial. <strong>Falla de comunicación.</strong></li>
+                            <li>El colapso de <strong>Knight Capital</strong> perdió <strong>$440 millones en 45 minutos</strong> (2012) → Código viejo se deployó por error. <strong>Falla de comunicación en el equipo.</strong></li>
+                        </ul>
+                        
+                        <p><strong>Moraleja:</strong> La comunicación no es "un tema blando". Es dinero, tiempo y supervivencia organizacional.</p>
+                    </div>
+
+                    <h3>🎯 ESTRUCTURA DE LA UNIDAD</h3>
+                    <p>Esta unidad está organizada en 3 grandes ejes:</p>
+                    
+                    <p><strong>📡 EJE 1: EL PROCESO (Bloques 2-3)</strong><br>
+                    Cómo funciona la comunicación, sus elementos, el modelo emisor-receptor</p>
+                    
+                    <p><strong>📊 EJE 2: LAS FORMAS Y DIRECCIONES (Bloques 4-5)</strong><br>
+                    Formal/informal, interna/externa, ascendente/descendente/horizontal</p>
+                    
+                    <p><strong>🚧 EJE 3: PROBLEMAS Y SOLUCIONES (Bloques 6-8)</strong><br>
+                    Barreras, herramientas, indicadores de efectividad</p>
+
+                    <div class="complete-section">
+                        <h3>✅ Completá esta sección</h3>
+                        <p>Cuando hayas leído y comprendido esta presentación, marcala como completada:</p>
+                        <button onclick="markComplete(1)">Marcar Bloque 1 como Completado</button>
+                    </div>
+                </div>
+
+                <!-- ============================================ -->
+                <!-- BLOQUE 2: EL PROCESO DE COMUNICACIÓN -->
+                <!-- ============================================ -->
+                <div class="content-block" id="block2">
+                    <h2>🔄 EL PROCESO DE COMUNICACIÓN</h2>
+                    
+                    <span class="tag green">🟢 IMPRESCINDIBLE</span>
+                    
+                    <h3>¿Qué es la comunicación?</h3>
+                    <p><strong>La comunicación es el proceso mediante el cual se transmite información, ideas, emociones o mensajes entre dos o más personas, con la intención de generar una comprensión común.</strong></p>
+                    
+                    <p>No es simplemente "hablar" o "escribir". Es un <strong>proceso complejo</strong> donde:</p>
+                    <ul>
+                        <li>Se construyen significados</li>
+                        <li>Se comparten sentidos</li>
+                        <li>Se negocian interpretaciones</li>
+                        <li>Se coordinan acciones</li>
+                    </ul>
+
+                    <h3>El modelo clásico de comunicación</h3>
+                    <p>El modelo más utilizado para entender la comunicación organizacional tiene <strong>7 elementos básicos</strong>:</p>
+                    
+                    <div style="background: #f8fafc; padding: 20px; border-radius: 10px; margin: 20px 0; font-family: monospace; font-size: 0.9em;">
+                        EMISOR → CODIFICACIÓN → MENSAJE → CANAL → DECODIFICACIÓN → RECEPTOR<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↑&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─────────────── RETROALIMENTACIÓN ──────────────────┘<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(atravesado por RUIDO)
+                    </div>
+
+                    <h3>📌 ELEMENTO 1: EMISOR (Fuente)</h3>
+                    <p><strong>Es quien inicia la comunicación, tiene una intención y quiere transmitir un mensaje.</strong></p>
+                    
+                    <p><strong>Características:</strong></p>
+                    <ul>
+                        <li>Tiene información, ideas o necesidades que comunicar</li>
+                        <li>Decide QUÉ comunicar y CÓMO hacerlo</li>
+                        <li>Es responsable de que el mensaje sea claro</li>
+                    </ul>
+                    
+                    <p><strong>Ejemplos en una empresa de software:</strong></p>
+                    <ul>
+                        <li>El <strong>Product Owner</strong> que comunica los requerimientos del cliente</li>
+                        <li>El <strong>Tech Lead</strong> que explica la arquitectura del sistema</li>
+                        <li>El <strong>Tester</strong> que reporta un bug</li>
+                        <li>El <strong>Developer</strong> que documenta su código</li>
+                    </ul>
+
+                    <h3>📌 ELEMENTO 2: CODIFICACIÓN</h3>
+                    <p><strong>Es el proceso de convertir las ideas en un mensaje comprensible usando símbolos, palabras, gestos o imágenes.</strong></p>
+                    
+                    <p>El emisor debe elegir:</p>
+                    <ul>
+                        <li><strong>El lenguaje:</strong> ¿técnico o simple? ¿castellano o inglés?</li>
+                        <li><strong>El formato:</strong> ¿texto, diagrama, video, código?</li>
+                        <li><strong>El tono:</strong> ¿formal o informal? ¿urgente o tranquilo?</li>
+                    </ul>
+                    
+                    <p><strong>Ejemplo:</strong></p>
+                    <p><strong>Idea en la mente del emisor:</strong> "Hay un error crítico en producción que está afectando a los usuarios"</p>
+                    
+                    <p><strong>Codificación MALA:</strong><br>
+                    "Che, parece que hay un temita en prod"</p>
+                    
+                    <p><strong>Codificación BUENA:</strong><br>
+                    "🔴 CRÍTICO: Error 500 en endpoint /payment afectando 100% usuarios. Servidor caído desde las 14:30hs. Requiere atención inmediata."</p>
+
+                    <h3>📌 ELEMENTO 3: MENSAJE</h3>
+                    <p><strong>Es el contenido de la información que se transmite.</strong></p>
+                    
+                    <p>Puede ser:</p>
+                    <ul>
+                        <li><strong>Verbal:</strong> palabras habladas o escritas</li>
+                        <li><strong>No verbal:</strong> gestos, expresiones faciales, tono de voz</li>
+                        <li><strong>Visual:</strong> diagramas, gráficos, código, pantallazos</li>
+                    </ul>
+                    
+                    <p><strong>Componentes del mensaje:</strong></p>
+                    <ul>
+                        <li><strong>Contenido:</strong> QUÉ se dice</li>
+                        <li><strong>Forma:</strong> CÓMO se dice</li>
+                        <li><strong>Contexto:</strong> CUÁNDO y DÓNDE se dice</li>
+                    </ul>
+                    
+                    <p><strong>Importante:</strong> El mensaje NO es solo lo que decimos, sino también:</p>
+                    <ul>
+                        <li>Cómo lo decimos</li>
+                        <li>Cuándo lo decimos</li>
+                        <li>Qué NO decimos</li>
+                    </ul>
+
+                    <h3>📌 ELEMENTO 4: CANAL (Medio)</h3>
+                    <p><strong>Es el medio físico o digital por el cual viaja el mensaje.</strong></p>
+                    
+                    <p><strong>Canales en organizaciones:</strong></p>
+                    
+                    <p><strong>Orales/Verbales:</strong></p>
+                    <ul>
+                        <li>Reuniones presenciales</li>
+                        <li>Llamadas telefónicas</li>
+                        <li>Videollamadas (Zoom, Meet, Teams)</li>
+                        <li>Conversaciones informales</li>
+                    </ul>
+                    
+                    <p><strong>Escritos:</strong></p>
+                    <ul>
+                        <li>Emails</li>
+                        <li>Slack / Discord / WhatsApp</li>
+                        <li>Documentación (Confluence, Notion)</li>
+                        <li>Tickets (Jira, Trello)</li>
+                        <li>Code comments</li>
+                    </ul>
+                    
+                    <p><strong>Visuales:</strong></p>
+                    <ul>
+                        <li>Diagramas (UML, ERD)</li>
+                        <li>Presentaciones (PPT)</li>
+                        <li>Dashboards</li>
+                        <li>Wireframes / Mockups</li>
+                    </ul>
+                    
+                    <p><strong>La elección del canal es CRÍTICA:</strong></p>
+                    
+                    <table>
+                        <tr>
+                            <th>SITUACIÓN</th>
+                            <th>CANAL CORRECTO</th>
+                            <th>CANAL INCORRECTO</th>
+                        </tr>
+                        <tr>
+                            <td>Bug crítico en producción</td>
+                            <td>Llamada + Slack urgente</td>
+                            <td>Email</td>
+                        </tr>
+                        <tr>
+                            <td>Feedback de code review</td>
+                            <td>Comentario en PR + videocall si es complejo</td>
+                            <td>WhatsApp personal</td>
+                        </tr>
+                        <tr>
+                            <td>Decisión arquitectónica</td>
+                            <td>Reunión + documento escrito</td>
+                            <td>Solo oral (se olvida)</td>
+                        </tr>
+                        <tr>
+                            <td>Daily standup</td>
+                            <td>Videocall 15 min</td>
+                            <td>Email largo</td>
+                        </tr>
+                    </table>
+
+                    <h3>📌 ELEMENTO 5: DECODIFICACIÓN</h3>
+                    <p><strong>Es el proceso mediante el cual el receptor interpreta y da sentido al mensaje.</strong></p>
+                    
+                    <p>El receptor:</p>
+                    <ul>
+                        <li>Recibe el mensaje</li>
+                        <li>Lo interpreta según su contexto, experiencia y conocimientos</li>
+                        <li>Le da un significado</li>
+                    </ul>
+                    
+                    <div class="info-box trampa">
+                        <h4>⚠️ PROBLEMA</h4>
+                        <p>El significado que el receptor le da NO siempre coincide con la intención del emisor.</p>
+                    </div>
+                    
+                    <p><strong>Ejemplo:</strong></p>
+                    <p><strong>Emisor dice:</strong> "Este código necesita refactoring"</p>
+                    
+                    <p><strong>Receptor puede entender:</strong></p>
+                    <ul>
+                        <li>✅ "Está funcionando pero podría ser más limpio" (correcto)</li>
+                        <li>❌ "Mi código es una porquería" (incorrecto, se ofende)</li>
+                        <li>❌ "Tengo que reescribir todo ya" (incorrecto, pánico innecesario)</li>
+                    </ul>
+                    
+                    <p><strong>La decodificación depende de:</strong></p>
+                    <ul>
+                        <li>Conocimiento técnico del receptor</li>
+                        <li>Estado emocional</li>
+                        <li>Contexto cultural</li>
+                        <li>Experiencias previas</li>
+                        <li>Relación con el emisor</li>
+                    </ul>
+
+                    <h3>📌 ELEMENTO 6: RECEPTOR (Destinatario)</h3>
+                    <p><strong>Es quien recibe el mensaje y lo interpreta.</strong></p>
+                    
+                    <p><strong>Responsabilidades del receptor:</strong></p>
+                    <ul>
+                        <li>Prestar atención</li>
+                        <li>Interpretar correctamente</li>
+                        <li>Pedir aclaraciones si algo no está claro</li>
+                        <li>Dar retroalimentación</li>
+                    </ul>
+                    
+                    <p><strong>En organizaciones hay distintos tipos de receptores:</strong></p>
+                    <ul>
+                        <li><strong>Directos:</strong> A quienes va dirigido el mensaje</li>
+                        <li><strong>Indirectos:</strong> Reciben copia o se enteran después</li>
+                        <li><strong>Público:</strong> Cuando la comunicación es abierta</li>
+                    </ul>
+
+                    <h3>📌 ELEMENTO 7: RETROALIMENTACIÓN (Feedback)</h3>
+                    <p><strong>Es la respuesta del receptor al emisor, cerrando el ciclo de comunicación.</strong></p>
+                    
+                    <p>Sin retroalimentación, NO sabemos si:</p>
+                    <ul>
+                        <li>El mensaje llegó</li>
+                        <li>Fue comprendido</li>
+                        <li>Fue aceptado</li>
+                        <li>Generó la acción deseada</li>
+                    </ul>
+                    
+                    <p><strong>Tipos de retroalimentación:</strong></p>
+                    
+                    <p><strong>Inmediata:</strong></p>
+                    <ul>
+                        <li>Respuesta en la conversación</li>
+                        <li>Reacción en Slack</li>
+                        <li>Pregunta de aclaración</li>
+                    </ul>
+                    
+                    <p><strong>Diferida:</strong></p>
+                    <ul>
+                        <li>Email de respuesta horas después</li>
+                        <li>Acción tomada días después</li>
+                        <li>Resultados a largo plazo</li>
+                    </ul>
+                    
+                    <p><strong>Verbal:</strong></p>
+                    <ul>
+                        <li>"Entendido"</li>
+                        <li>"Ok, lo hago"</li>
+                        <li>"No me queda claro esto..."</li>
+                    </ul>
+                    
+                    <p><strong>No verbal:</strong></p>
+                    <ul>
+                        <li>Asentir con la cabeza</li>
+                        <li>Expresión de confusión</li>
+                        <li>Ignorar el mensaje (también es feedback)</li>
+                    </ul>
+
+                    <h3>🚧 RUIDO / INTERFERENCIA</h3>
+                    <p><strong>Es cualquier elemento que distorsiona o impide la comunicación efectiva.</strong></p>
+                    
+                    <p><strong>Tipos de ruido:</strong></p>
+                    
+                    <p><strong>1. RUIDO FÍSICO:</strong></p>
+                    <ul>
+                        <li>Mala conexión de internet en videocall</li>
+                        <li>Ruido ambiental en la oficina</li>
+                        <li>Servidor caído que no deja enviar mensajes</li>
+                    </ul>
+                    
+                    <p><strong>2. RUIDO SEMÁNTICO:</strong></p>
+                    <ul>
+                        <li>Uso de jerga técnica que el otro no entiende</li>
+                        <li>Términos ambiguos</li>
+                        <li>Idiomas diferentes</li>
+                    </ul>
+                    
+                    <p><strong>3. RUIDO PSICOLÓGICO:</strong></p>
+                    <ul>
+                        <li>Prejuicios ("este siempre se equivoca")</li>
+                        <li>Estado emocional ("estoy enojado, no escucho")</li>
+                        <li>Distracciones mentales</li>
+                    </ul>
+                    
+                    <p><strong>4. RUIDO ORGANIZACIONAL:</strong></p>
+                    <ul>
+                        <li>Demasiados canales de comunicación</li>
+                        <li>Información contradictoria</li>
+                        <li>Falta de contexto</li>
+                    </ul>
+
+                    <div class="info-box sabias">
+                        <h4>💡 ¿LO SABÍAS? - El caso del Mars Climate Orbiter</h4>
+                        <p>En 1999, la NASA perdió una nave espacial de <strong>$125 millones</strong> por un error de comunicación aparentemente "tonto":</p>
+                        <ul>
+                            <li><strong>Equipo A</strong> (Lockheed Martin) programó el software usando <strong>unidades imperiales</strong> (libras-fuerza)</li>
+                            <li><strong>Equipo B</strong> (NASA) esperaba recibir datos en <strong>unidades métricas</strong> (newtons)</li>
+                            <li>Nadie comunicó claramente qué sistema de medición usaban</li>
+                            <li>La nave se estrelló contra Marte</li>
+                        </ul>
+                        
+                        <p><strong>Lecciones:</strong></p>
+                        <ol>
+                            <li>Nunca asumas que "es obvio"</li>
+                            <li>Documenta TODO</li>
+                            <li>Valida que el receptor entendió correctamente</li>
+                            <li>Los errores de comunicación tienen consecuencias REALES</li>
+                        </ol>
+                    </div>
+
+                    <div class="info-box trampa">
+                        <h4>⚠️ TRAMPA TÍPICA #1</h4>
+                        <p><strong>ERROR COMÚN:</strong> "Si yo dije algo claramente, ya comuniqué bien"</p>
+                        <p><strong>REALIDAD:</strong> La comunicación NO se mide por lo que decís, sino por <strong>lo que el otro entiende</strong>.</p>
+                        <p>Podés explicar algo "perfectamente" desde tu perspectiva, pero si el otro no entendió, <strong>la comunicación falló</strong>.</p>
+                        <p><strong>Responsabilidad:</strong> La comunicación efectiva es <strong>50% del emisor</strong> (expresarse bien) y <strong>50% del receptor</strong> (escuchar activamente), PERO el emisor tiene la responsabilidad de <strong>asegurarse</strong> de que fue comprendido.</p>
+                    </div>
+
+                    <h3>📦 CHECKLIST - Proceso de Comunicación</h3>
+                    <p>Marcá lo que ya dominás:</p>
+                    
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> Los 7 elementos del proceso
+                    </div>
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> Emisor y su responsabilidad
+                    </div>
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> Codificación efectiva
+                    </div>
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> Tipos de mensajes
+                    </div>
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> Elección del canal correcto
+                    </div>
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> Decodificación e interpretación
+                    </div>
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> Receptor y retroalimentación
+                    </div>
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> Tipos de ruido
+                    </div>
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> Caso Mars Climate Orbiter
+                    </div>
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> Comunicación = lo que el otro entiende
+                    </div>
+
+                    <div class="complete-section">
+                        <h3>✅ Completá esta sección</h3>
+                        <button onclick="markComplete(2)">Marcar Bloque 2 como Completado</button>
+                    </div>
+                </div>
+
+                <!-- ============================================ -->
+                <!-- BLOQUE 3: ELEMENTOS EN PROFUNDIDAD -->
+                <!-- ============================================ -->
+                <div class="content-block" id="block3">
+                    <h2>🔍 ELEMENTOS EN PROFUNDIDAD</h2>
+                    
+                    <span class="tag yellow">🟡 IMPORTANTE</span>
+                    
+                    <p>En el bloque anterior vimos los 7 elementos del proceso. Ahora vamos a profundizar en aspectos críticos de cada uno.</p>
+
+                    <h3>La importancia de la INTENCIÓN comunicativa</h3>
+                    <p><strong>Toda comunicación tiene una intención:</strong></p>
+                    <ul>
+                        <li><strong>Informar:</strong> "El deploy es mañana a las 10hs"</li>
+                        <li><strong>Persuadir:</strong> "Deberíamos usar React en lugar de Angular"</li>
+                        <li><strong>Ordenar:</strong> "Necesito que corrijas este bug antes del viernes"</li>
+                        <li><strong>Consultar:</strong> "¿Qué te parece este approach?"</li>
+                        <li><strong>Expresar emociones:</strong> "Estoy frustrado con este código legacy"</li>
+                    </ul>
+                    
+                    <div class="info-box trampa">
+                        <h4>⚠️ PROBLEMA</h4>
+                        <p>A veces la intención NO coincide con el mensaje enviado.</p>
+                    </div>
+                    
+                    <p><strong>Ejemplo:</strong></p>
+                    <p><strong>Intención:</strong> Ayudar al compañero a mejorar su código</p>
+                    <p><strong>Mensaje enviado:</strong> "Este código es horrible, reescribilo"</p>
+                    <p><strong>Receptor entiende:</strong> "Soy un mal programador, me están atacando"</p>
+                    <p><strong>Resultado:</strong> Conflicto en lugar de mejora</p>
+
+                    <h3>Codificación efectiva en IT</h3>
+                    <p>En el mundo tech, codificar mensajes implica elegir:</p>
+                    
+                    <p><strong>1. Nivel de detalle técnico</strong></p>
+                    
+                    <table>
+                        <tr>
+                            <th>RECEPTOR</th>
+                            <th>CODIFICACIÓN</th>
+                        </tr>
+                        <tr>
+                            <td>Developer senior</td>
+                            <td>"El algoritmo de búsqueda tiene complejidad O(n²), optimizalo a O(n log n)"</td>
+                        </tr>
+                        <tr>
+                            <td>Cliente no técnico</td>
+                            <td>"La búsqueda es lenta cuando hay muchos datos. Vamos a mejorarla"</td>
+                        </tr>
+                        <tr>
+                            <td>Manager</td>
+                            <td>"Identificamos un cuello de botella de performance. Solución: 3 días"</td>
+                        </tr>
+                    </table>
+                    
+                    <p><strong>2. Formato del mensaje</strong></p>
+                    <ul>
+                        <li><strong>Bug report:</strong> Título + pasos para reproducir + expected vs actual + screenshots</li>
+                        <li><strong>Feature request:</strong> User story + acceptance criteria + mockups</li>
+                        <li><strong>Code review:</strong> Comentarios específicos en líneas + sugerencias constructivas</li>
+                        <li><strong>Documentación:</strong> README + ejemplos de uso + API reference</li>
+                    </ul>
+                    
+                    <p><strong>3. Tono y urgencia</strong></p>
+                    <div style="background: #f8fafc; padding: 15px; border-radius: 8px; margin: 15px 0;">
+                        <p>🔴 CRÍTICO: Producción caída</p>
+                        <p>🟡 IMPORTANTE: Bug que afecta funcionalidad</p>
+                        <p>🟢 MEJORA: Refactor sugerido</p>
+                        <p>💡 IDEA: Feature nueva a considerar</p>
+                    </div>
+
+                    <h3>Los canales según el contexto</h3>
+                    <span class="tag green">🟢 IMPRESCINDIBLE</span>
+                    
+                    <p><strong>Reglas de oro:</strong></p>
+                    
+                    <p><strong>URGENTE + IMPORTANTE = Llamada / videocall</strong></p>
+                    <ul>
+                        <li>Producción caída</li>
+                        <li>Decisión crítica que bloquea a todos</li>
+                        <li>Conflicto que necesita resolverse ya</li>
+                    </ul>
+                    
+                    <p><strong>IMPORTANTE + NO URGENTE = Email / documento</strong></p>
+                    <ul>
+                        <li>Decisiones arquitectónicas</li>
+                        <li>Cambios de proceso</li>
+                        <li>Documentación de features</li>
+                    </ul>
+                    
+                    <p><strong>RÁPIDO + SINCRÓNICO = Slack / chat</strong></p>
+                    <ul>
+                        <li>Preguntas rápidas</li>
+                        <li>Coordinación del día a día</li>
+                        <li>Daily standups asincrónicos</li>
+                    </ul>
+                    
+                    <p><strong>COMPLEJO + REQUIERE ANÁLISIS = Documento + reunión</strong></p>
+                    <ul>
+                        <li>Propuestas técnicas</li>
+                        <li>Retrospectivas</li>
+                        <li>Planificación de sprints</li>
+                    </ul>
+
+                    <div class="info-box sabias">
+                        <h4>💡 ¿LO SABÍAS? - El "remote first" y la sobrecarga de canales</h4>
+                        <p>Desde la pandemia, muchas empresas IT se volvieron <strong>remote-first</strong>. Esto generó:</p>
+                        
+                        <p><strong>ANTES (oficina física):</strong></p>
+                        <ul>
+                            <li>1 canal principal: conversación cara a cara</li>
+                            <li>Backup: email</li>
+                        </ul>
+                        
+                        <p><strong>AHORA (remoto):</strong></p>
+                        <ul>
+                            <li>Slack (5+ canales por equipo)</li>
+                            <li>Email corporativo</li>
+                            <li>Zoom/Meet/Teams</li>
+                            <li>Jira/Trello/Asana</li>
+                            <li>Notion/Confluence</li>
+                            <li>GitHub/GitLab</li>
+                            <li>WhatsApp "por las dudas"</li>
+                        </ul>
+                        
+                        <p><strong>Resultado:</strong> <strong>"Context switching"</strong> constante = productividad cae 40%</p>
+                        
+                        <p><strong>Solución:</strong> Empresas exitosas definen <strong>qué canal para qué</strong>:</p>
+                        <ul>
+                            <li>Slack: conversación del día</li>
+                            <li>Email: comunicación formal</li>
+                            <li>Jira: tareas y bugs</li>
+                            <li>Notion: documentación</li>
+                            <li>Zoom: meetings importantes</li>
+                            <li>GitHub: todo lo técnico</li>
+                        </ul>
+                        
+                        <p><strong>Moraleja:</strong> Más canales ≠ mejor comunicación. A veces es peor.</p>
+                    </div>
+
+                    <h3>Retroalimentación efectiva en equipos de desarrollo</h3>
+                    
+                    <p><strong>Tipos de feedback en IT:</strong></p>
+                    
+                    <p><strong>1. FEEDBACK DE PROCESO:</strong></p>
+                    <ul>
+                        <li>Daily standup: "Ayer hice X, hoy haré Y, me bloquea Z"</li>
+                        <li>Retrospectiva: "Qué funcionó, qué mejorar, qué experimentar"</li>
+                    </ul>
+                    
+                    <p><strong>2. FEEDBACK DE CÓDIGO:</strong></p>
+                    <ul>
+                        <li>Code review: "Este método es muy largo, sugiero extraer esta lógica"</li>
+                        <li>Pair programming: Feedback inmediato mientras se codea</li>
+                    </ul>
+                    
+                    <p><strong>3. FEEDBACK DE PRODUCTO:</strong></p>
+                    <ul>
+                        <li>Demo: Cliente/usuario prueba y da feedback</li>
+                        <li>User testing: Observar cómo usan el producto</li>
+                    </ul>
+                    
+                    <p><strong>4. FEEDBACK DE PERFORMANCE:</strong></p>
+                    <ul>
+                        <li>1:1 con manager: Cómo vas, qué mejorar, objetivos</li>
+                        <li>360°: Feedback de peers, jefes, subordinados</li>
+                    </ul>
+
+                    <h3>Las 3 C's del feedback efectivo</h3>
+                    
+                    <p><strong>1. CLARO (Clear)</strong></p>
+                    <ul>
+                        <li>Específico, no vago</li>
+                        <li>Con ejemplos concretos</li>
+                        <li>Sobre comportamientos observables</li>
+                    </ul>
+                    <p>❌ MAL: "Tu código no está bien"<br>
+                    ✅ BIEN: "Esta función tiene 200 líneas y hace 5 cosas distintas. Sugiero dividirla en funciones más pequeñas"</p>
+                    
+                    <p><strong>2. CONSTRUCTIVO (Constructive)</strong></p>
+                    <ul>
+                        <li>Enfocado en mejorar, no en criticar</li>
+                        <li>Ofrece alternativas</li>
+                        <li>Resalta también lo positivo</li>
+                    </ul>
+                    <p>❌ MAL: "Esto está mal"<br>
+                    ✅ BIEN: "Este approach funciona pero podría ser más eficiente usando X. Te paso un ejemplo de cómo implementarlo"</p>
+                    
+                    <p><strong>3. COMPASIVO (Compassionate)</strong></p>
+                    <ul>
+                        <li>Con empatía</li>
+                        <li>Sin ataques personales</li>
+                        <li>Reconociendo el esfuerzo</li>
+                    </ul>
+                    <p>❌ MAL: "¿Cómo se te ocurre hacer esto así?"<br>
+                    ✅ BIEN: "Entiendo el approach, y funciona. Te propongo esta alternativa que podría escalar mejor"</p>
+
+                    <div class="info-box trampa">
+                        <h4>⚠️ TRAMPA TÍPICA #2</h4>
+                        <p><strong>ERROR COMÚN:</strong> "Mandé el mensaje por Slack, el otro es problema del receptor si no lo leyó"</p>
+                        <p><strong>REALIDAD:</strong> Si elegiste el canal equivocado, <strong>el problema es tuyo como emisor</strong>.</p>
+                        <p><strong>Ejemplo:</strong> Mandaste un mensaje CRÍTICO por Slack a las 3am. La persona lo vio 8 horas después cuando llegó a trabajar. Mientras tanto, producción estuvo caída.</p>
+                        <p><strong>¿Quién falló?</strong> El emisor, por no llamar directamente.</p>
+                        <p><strong>Regla:</strong> La urgencia del mensaje determina el canal. No al revés.</p>
+                    </div>
+
+                    <h3>📦 CHECKLIST - Elementos en Profundidad</h3>
+                    <p>Marcá lo que ya dominás:</p>
+                    
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> Intención comunicativa
+                    </div>
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> Codificación según receptor
+                    </div>
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> Formato de mensajes técnicos
+                    </div>
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> Tono y urgencia
+                    </div>
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> Urgente+Importante = Llamada
+                    </div>
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> Context switching
+                    </div>
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> Tipos de feedback en IT
+                    </div>
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> Las 3 C's del feedback
+                    </div>
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> Responsabilidad del emisor en elección de canal
+                    </div>
+
+                    <div class="complete-section">
+                        <h3>✅ Completá esta sección</h3>
+                        <button onclick="markComplete(3)">Marcar Bloque 3 como Completado</button>
+                    </div>
+                </div>
+
+                <!-- ============================================ -->
+                <!-- BLOQUE 4: FORMAS DE COMUNICACIÓN -->
+                <!-- ============================================ -->
+                <div class="content-block" id="block4">
+                    <h2>📊 FORMAS DE COMUNICACIÓN</h2>
+                    
+                    <span class="tag green">🟢 IMPRESCINDIBLE</span>
+                    
+                    <p>La comunicación organizacional puede clasificarse según distintos criterios. Conocer estas formas es clave para elegir <strong>cómo comunicar en cada situación</strong>.</p>
+
+                    <h3>POR FORMALIDAD</h3>
+
+                    <h4>COMUNICACIÓN FORMAL</h4>
+                    <p><strong>Es la comunicación oficial, documentada y que sigue los canales establecidos por la organización.</strong></p>
+                    
+                    <p><strong>Características:</strong></p>
+                    <ul>
+                        <li>Usa canales oficiales</li>
+                        <li>Sigue protocolos y normas</li>
+                        <li>Queda documentada</li>
+                        <li>Tiene validez legal en algunos casos</li>
+                    </ul>
+                    
+                    <p><strong>Ejemplos:</strong></p>
+                    <ul>
+                        <li>Emails corporativos</li>
+                        <li>Memos internos</li>
+                        <li>Documentación técnica oficial</li>
+                        <li>Pull requests en GitHub</li>
+                        <li>Contratos y acuerdos</li>
+                        <li>Reportes de progreso</li>
+                        <li>Evaluaciones de desempeño</li>
+                    </ul>
+                    
+                    <p><strong>Ventajas:</strong></p>
+                    <ul>
+                        <li>✅ Claridad y precisión</li>
+                        <li>✅ Trazabilidad (queda registro)</li>
+                        <li>✅ Reduce malentendidos</li>
+                        <li>✅ Validez legal</li>
+                    </ul>
+                    
+                    <p><strong>Desventajas:</strong></p>
+                    <ul>
+                        <li>❌ Lenta</li>
+                        <li>❌ Puede ser burocrática</li>
+                        <li>❌ Menos flexible</li>
+                        <li>❌ A veces demasiado rígida</li>
+                    </ul>
+
+                    <h4>COMUNICACIÓN INFORMAL</h4>
+                    <p><strong>Es la comunicación espontánea, no planificada, que surge naturalmente entre las personas.</strong></p>
+                    
+                    <p><strong>Características:</strong></p>
+                    <ul>
+                        <li>No sigue jerarquías</li>
+                        <li>Es rápida y flexible</li>
+                        <li>No queda documentada oficialmente</li>
+                        <li>Basada en relaciones personales</li>
+                    </ul>
+                    
+                    <p><strong>Ejemplos:</strong></p>
+                    <ul>
+                        <li>Conversaciones de pasillo</li>
+                        <li>Chats de WhatsApp del equipo</li>
+                        <li>Almuerzos juntos</li>
+                        <li>Pair programming espontáneo</li>
+                        <li>Consultas rápidas en Slack</li>
+                        <li>Memes en el canal #random</li>
+                    </ul>
+                    
+                    <p><strong>Ventajas:</strong></p>
+                    <ul>
+                        <li>✅ Rapidísima</li>
+                        <li>✅ Fortalece relaciones</li>
+                        <li>✅ Más humana</li>
+                        <li>✅ Flexible</li>
+                    </ul>
+                    
+                    <p><strong>Desventajas:</strong></p>
+                    <ul>
+                        <li>❌ Puede generar rumores</li>
+                        <li>❌ No queda registro</li>
+                        <li>❌ Menos precisa</li>
+                        <li>❌ No tiene validez oficial</li>
+                    </ul>
+
+                    <div class="info-box sabias">
+                        <h4>💡 ¿LO SABÍAS? - La comunicación informal viaja 3-4 veces más rápido</h4>
+                        <p>Estudios organizacionales muestran que:</p>
+                        <ul>
+                            <li>La comunicación informal viaja <strong>3-4 veces más rápido</strong> que la formal</li>
+                            <li>El <strong>75% de la información</strong> en una organización se transmite informalmente</li>
+                            <li>Los empleados <strong>confían más</strong> en información informal que en comunicados oficiales (cuando hay contradicción)</li>
+                        </ul>
+                        
+                        <p><strong>Ejemplo real:</strong></p>
+                        <p>Una empresa anuncia formalmente "No habrá despidos este año".</p>
+                        <p>Pero informalmente circula: "Los managers están en reuniones cerradas urgentes".</p>
+                        <p><strong>¿Qué se cree?</strong> Lo informal.</p>
+                        
+                        <p><strong>Lección:</strong> La comunicación informal NO se puede eliminar. Hay que aprovecharla positivamente y asegurarse de que la formal sea <strong>creíble y consistente</strong>.</p>
+                    </div>
+
+                    <h3>POR ALCANCE</h3>
+
+                    <h4>COMUNICACIÓN INTERNA</h4>
+                    <p><strong>Es la que ocurre dentro de la organización, entre sus miembros.</strong></p>
+                    
+                    <p><strong>Ejemplos:</strong></p>
+                    <ul>
+                        <li>Daily standup del equipo</li>
+                        <li>Slack interno</li>
+                        <li>Email entre colaboradores</li>
+                        <li>Reuniones de equipo</li>
+                        <li>Retrospectivas</li>
+                        <li>All-hands meetings</li>
+                        <li>Newsletter interno</li>
+                    </ul>
+                    
+                    <p><strong>Objetivos:</strong></p>
+                    <ul>
+                        <li>Coordinar tareas</li>
+                        <li>Compartir información</li>
+                        <li>Alinear al equipo</li>
+                        <li>Resolver problemas</li>
+                        <li>Construir cultura</li>
+                    </ul>
+
+                    <h4>COMUNICACIÓN EXTERNA</h4>
+                    <p><strong>Es la que se dirige a personas u organizaciones fuera de la empresa.</strong></p>
+                    
+                    <p><strong>Ejemplos:</strong></p>
+                    <ul>
+                        <li>Emails a clientes</li>
+                        <li>Demos de producto</li>
+                        <li>Comunicados de prensa</li>
+                        <li>Redes sociales corporativas</li>
+                        <li>Blog de la empresa</li>
+                        <li>Atención al cliente / support</li>
+                        <li>Presentaciones en conferencias</li>
+                    </ul>
+                    
+                    <p><strong>Características:</strong></p>
+                    <ul>
+                        <li>Casi siempre es <strong>formal</strong></li>
+                        <li>Representa a la empresa</li>
+                        <li>Construye imagen y reputación</li>
+                        <li>Debe ser cuidadosamente preparada</li>
+                    </ul>
+
+                    <h3>POR TIPO DE LENGUAJE</h3>
+
+                    <h4>COMUNICACIÓN VERBAL</h4>
+                    <p><strong>Usa palabras habladas o escritas.</strong></p>
+                    
+                    <p><strong>Verbal ORAL:</strong></p>
+                    <ul>
+                        <li>Reuniones</li>
+                        <li>Llamadas</li>
+                        <li>Videollamadas</li>
+                        <li>Presentaciones</li>
+                    </ul>
+                    
+                    <p><strong>Verbal ESCRITA:</strong></p>
+                    <ul>
+                        <li>Emails</li>
+                        <li>Slack</li>
+                        <li>Documentación</li>
+                        <li>Comentarios en código</li>
+                    </ul>
+
+                    <h4>COMUNICACIÓN NO VERBAL</h4>
+                    <p><strong>Se comunica sin palabras, a través de gestos, tono, postura, etc.</strong></p>
+                    
+                    <p><strong>Elementos no verbales:</strong></p>
+                    <ul>
+                        <li><strong>Lenguaje corporal:</strong> postura, gestos, movimientos</li>
+                        <li><strong>Expresiones faciales:</strong> sonrisa, ceño fruncido, sorpresa</li>
+                        <li><strong>Tono de voz:</strong> entusiasta, monótono, enojado</li>
+                        <li><strong>Contacto visual:</strong> mirar a los ojos o desviar la mirada</li>
+                        <li><strong>Apariencia:</strong> vestimenta, orden</li>
+                    </ul>
+                    
+                    <p><strong>En comunicación digital:</strong></p>
+                    <ul>
+                        <li>Emojis 😊😡🔥</li>
+                        <li>MAYÚSCULAS (gritar)</li>
+                        <li>Tiempo de respuesta (responder en 2 min vs. 2 días)</li>
+                        <li>Puntos suspensivos...</li>
+                        <li>Signos de exclamación!!!</li>
+                    </ul>
+
+                    <div class="info-box sabias">
+                        <h4>💡 ¿LO SABÍAS? - La regla del 7-38-55 de Mehrabian</h4>
+                        <p>El psicólogo Albert Mehrabian encontró que en comunicación de <strong>emociones</strong>:</p>
+                        <ul>
+                            <li><strong>7%</strong> del mensaje es el contenido (las palabras)</li>
+                            <li><strong>38%</strong> es el tono de voz</li>
+                            <li><strong>55%</strong> es lenguaje corporal</li>
+                        </ul>
+                        
+                        <p><strong>Ejemplo:</strong></p>
+                        <p>"Está bien" puede significar:</p>
+                        <ul>
+                            <li>😊 "Está bien" (realmente está bien)</li>
+                            <li>😐 "Está bien..." (no está bien pero no quiero discutir)</li>
+                            <li>😤 "Está BIEN" (para nada está bien, estoy enojado)</li>
+                        </ul>
+                        
+                        <p><strong>En remoto esto es un PROBLEMA</strong> porque perdemos el 93% de la comunicación emocional.</p>
+                        <p><strong>Solución:</strong> Usar videollamadas para temas emocionales + compensar con emojis y tono escrito.</p>
+                    </div>
+
+                    <h3>POR SINCRONÍA</h3>
+
+                    <h4>COMUNICACIÓN SINCRÓNICA</h4>
+                    <p><strong>Emisor y receptor se comunican al mismo tiempo, en tiempo real.</strong></p>
+                    
+                    <p><strong>Ejemplos:</strong></p>
+                    <ul>
+                        <li>Reuniones presenciales</li>
+                        <li>Llamadas telefónicas</li>
+                        <li>Videollamadas</li>
+                        <li>Chat en vivo</li>
+                    </ul>
+                    
+                    <p><strong>Ventajas:</strong></p>
+                    <ul>
+                        <li>✅ Feedback instantáneo</li>
+                        <li>✅ Se resuelven dudas en el momento</li>
+                        <li>✅ Más humana</li>
+                        <li>✅ Permite leer lenguaje no verbal</li>
+                    </ul>
+                    
+                    <p><strong>Desventajas:</strong></p>
+                    <ul>
+                        <li>❌ Requiere que ambos estén disponibles al mismo tiempo</li>
+                        <li>❌ Interrumpe el "deep work"</li>
+                        <li>❌ Difícil con equipos distribuidos (zonas horarias)</li>
+                        <li>❌ No queda registro exacto (a menos que se grabe)</li>
+                    </ul>
+
+                    <h4>COMUNICACIÓN ASINCRÓNICA</h4>
+                    <p><strong>Emisor y receptor NO se comunican al mismo tiempo. Hay un delay.</strong></p>
+                    
+                    <p><strong>Ejemplos:</strong></p>
+                    <ul>
+                        <li>Email</li>
+                        <li>Slack (cuando no es en tiempo real)</li>
+                        <li>Pull requests</li>
+                        <li>Documentación</li>
+                        <li>Videos grabados (Loom)</li>
+                        <li>Tickets en Jira</li>
+                    </ul>
+                    
+                    <p><strong>Ventajas:</strong></p>
+                    <ul>
+                        <li>✅ Cada uno responde cuando puede</li>
+                        <li>✅ Respeta el tiempo de deep work</li>
+                        <li>✅ Funciona bien con equipos distribuidos</li>
+                        <li>✅ Queda documentado</li>
+                        <li>✅ Se puede pensar mejor la respuesta</li>
+                    </ul>
+                    
+                    <p><strong>Desventajas:</strong></p>
+                    <ul>
+                        <li>❌ Más lenta</li>
+                        <li>❌ Puede generar bloqueos</li>
+                        <li>❌ Menos conexión humana</li>
+                        <li>❌ Mayor riesgo de malentendidos</li>
+                    </ul>
+
+                    <div class="info-box sabias">
+                        <h4>💡 ¿LO SABÍAS? - GitLab: 100% remoto, 100% async-first</h4>
+                        <p><strong>GitLab</strong> es una empresa de 1,300+ empleados en 65 países, 100% remota, que practica <strong>"async-first"</strong>:</p>
+                        
+                        <p><strong>Sus reglas:</strong></p>
+                        <ul>
+                            <li>Todo se documenta por escrito (handbook de 2000+ páginas público)</li>
+                            <li>Las reuniones son la <strong>excepción</strong>, no la regla</li>
+                            <li>Decisiones por escrito en GitLab Issues</li>
+                            <li>Daily standups escritos (no videocalls)</li>
+                            <li>Cada empleado trabaja en su horario</li>
+                        </ul>
+                        
+                        <p><strong>Resultados:</strong></p>
+                        <ul>
+                            <li>Productividad altísima</li>
+                            <li>Pueden contratar talento de todo el mundo</li>
+                            <li>Trabajo profundo sin interrupciones</li>
+                            <li>Todo documentado (cualquiera puede buscar decisiones pasadas)</li>
+                        </ul>
+                        
+                        <p><strong>Moraleja:</strong> Async-first no significa "cero sincronía", sino que la sincronía es <strong>deliberada y justificada</strong>, no el default.</p>
+                    </div>
+
+                    <div class="info-box trampa">
+                        <h4>⚠️ TRAMPA TÍPICA #3</h4>
+                        <p><strong>ERROR COMÚN:</strong> "La comunicación informal no importa, solo vale la formal"</p>
+                        <p><strong>REALIDAD:</strong> La comunicación informal es <strong>más poderosa</strong> que la formal en muchos aspectos.</p>
+                        <p>Los rumores viajan más rápido. La gente confía más en lo que le cuenta un compañero que en un memo corporativo.</p>
+                        <p><strong>Solución:</strong> No intentar eliminarla, sino:</p>
+                        <ul>
+                            <li>Asegurarse de que la comunicación formal sea <strong>creíble</strong></li>
+                            <li>Usar la informal positivamente (construir cultura, relaciones)</li>
+                            <li>Si hay rumores negativos, comunicar formalmente con <strong>transparencia</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="info-box trampa">
+                        <h4>⚠️ TRAMPA TÍPICA #4</h4>
+                        <p><strong>ERROR COMÚN:</strong> "Hagamos más reuniones para mejorar la comunicación"</p>
+                        <p><strong>REALIDAD:</strong> El exceso de reuniones (comunicación sincrónica) puede <strong>destruir</strong> la productividad.</p>
+                        <p><strong>"Zoom fatigue"</strong> es real. Estar 8 horas en videocalls agota mentalmente.</p>
+                        <p><strong>Solución:</strong></p>
+                        <ul>
+                            <li>Default: async</li>
+                            <li>Reunión solo cuando: decisión compleja, conflicto, necesita discusión, onboarding</li>
+                            <li>Máximo 4-5hs de meetings por semana por persona</li>
+                            <li>Toda reunión con agenda, objetivo claro, y notas documentadas</li>
+                        </ul>
+                    </div>
+
+                    <h3>📦 CHECKLIST - Formas de Comunicación</h3>
+                    <p>Marcá lo que ya dominás:</p>
+                    
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> Comunicación formal
+                    </div>
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> Comunicación informal
+                    </div>
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> Comunicación interna
+                    </div>
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> Comunicación externa
+                    </div>
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> Comunicación verbal (oral y escrita)
+                    </div>
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> Comunicación no verbal
+                    </div>
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> Comunicación sincrónica
+                    </div>
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> Comunicación asincrónica
+                    </div>
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> La informal viaja 3-4x más rápido
+                    </div>
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> Regla 7-38-55 de Mehrabian
+                    </div>
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> GitLab async-first
+                    </div>
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> Cuándo usar cada forma
+                    </div>
+
+                    <div class="complete-section">
+                        <h3>✅ Completá esta sección</h3>
+                        <button onclick="markComplete(4)">Marcar Bloque 4 como Completado</button>
+                    </div>
+                </div>
+
+                <!-- ============================================ -->
+                <!-- BLOQUE 5: DIRECCIONES DE COMUNICACIÓN -->
+                <!-- ============================================ -->
+                <div class="content-block" id="block5">
+                    <h2>⬆️⬇️➡️ DIRECCIONES DE LA COMUNICACIÓN</h2>
+                    
+                    <span class="tag green">🟢 IMPRESCINDIBLE</span>
+                    
+                    <p>Además de las formas, la comunicación organizacional puede clasificarse según <strong>la dirección en que fluye</strong> dentro de la estructura jerárquica.</p>
+
+                    <h3>COMUNICACIÓN DESCENDENTE (Top-Down)</h3>
+                    <p><strong>Fluye desde los niveles jerárquicos superiores hacia los inferiores.</strong></p>
+                    <p>Es la comunicación que va <strong>de jefes/managers hacia empleados/colaboradores</strong>.</p>
+                    
+                    <p><strong>Contenido típico:</strong></p>
+                    <ul>
+                        <li>Instrucciones y órdenes</li>
+                        <li>Políticas y procedimientos</li>
+                        <li>Feedback sobre el desempeño</li>
+                        <li>Objetivos y metas</li>
+                        <li>Información sobre la empresa</li>
+                        <li>Capacitación</li>
+                    </ul>
+                    
+                    <p><strong>Canales:</strong></p>
+                    <ul>
+                        <li>Emails de managers</li>
+                        <li>All-hands meetings</li>
+                        <li>1:1s (manager → empleado)</li>
+                        <li>Memos oficiales</li>
+                        <li>Evaluaciones de desempeño</li>
+                    </ul>
+                    
+                    <p><strong>Ejemplo en IT:</strong></p>
+                    <p><em>El Tech Lead envía un email al equipo:</em></p>
+                    <p style="background: #f8fafc; padding: 15px; border-radius: 8px; margin: 10px 0;">"Equipo, a partir de la próxima semana implementaremos code reviews obligatorios para todos los PRs. El proceso será: crear PR → mínimo 2 aprobaciones → merge. Anexo la guía de cómo hacerlo."</p>
+                    
+                    <p><strong>Ventajas:</strong></p>
+                    <ul>
+                        <li>✅ Claridad en la dirección</li>
+                        <li>✅ Control y coordinación</li>
+                        <li>✅ Alineación de objetivos</li>
+                        <li>✅ Autoridad clara</li>
+                    </ul>
+                    
+                    <p><strong>Desventajas:</strong></p>
+                    <ul>
+                        <li>❌ Puede ser unidireccional (no hay feedback)</li>
+                        <li>❌ "Teléfono descompuesto" (distorsión al pasar por muchos niveles)</li>
+                        <li>❌ Puede generar resistencia si es autoritaria</li>
+                        <li>❌ Puede sofocar la autonomía</li>
+                    </ul>
+
+                    <div class="info-box trampa">
+                        <h4>⚠️ TRAMPA TÍPICA #5</h4>
+                        <p><strong>ERROR COMÚN:</strong> "Comunicación descendente = solo dar órdenes, no hace falta feedback"</p>
+                        <p><strong>REALIDAD:</strong> La comunicación descendente <strong>efectiva</strong> deja espacio para preguntas y feedback.</p>
+                        
+                        <p><strong>Ejemplo MALO:</strong></p>
+                        <p style="background: #fee2e2; padding: 15px; border-radius: 8px; margin: 10px 0;">"A partir de mañana usamos TypeScript. Fin del tema."</p>
+                        
+                        <p><strong>Ejemplo BUENO:</strong></p>
+                        <p style="background: #d1fae5; padding: 15px; border-radius: 8px; margin: 10px 0;">"Equipo, vamos a migrar a TypeScript porque [razones]. Sé que es un cambio grande. Acá está el plan: [detalles]. El jueves tenemos una reunión para responder todas sus dudas. Mientras tanto, pueden dejar preguntas en este doc."</p>
+                        
+                        <p><strong>Diferencia:</strong> El segundo invita al diálogo, no solo impone.</p>
+                    </div>
+
+                    <h3>COMUNICACIÓN ASCENDENTE (Bottom-Up)</h3>
+                    <p><strong>Fluye desde los niveles jerárquicos inferiores hacia los superiores.</strong></p>
+                    <p>Es la comunicación que va <strong>de empleados/colaboradores hacia jefes/managers</strong>.</p>
+                    
+                    <p><strong>Contenido típico:</strong></p>
+                    <ul>
+                        <li>Reportes de progreso</li>
+                        <li>Problemas y bloqueos</li>
+                        <li>Sugerencias y propuestas</li>
+                        <li>Feedback sobre decisiones</li>
+                        <li>Quejas o reclamos</li>
+                        <li>Información del día a día</li>
+                    </ul>
+                    
+                    <p><strong>Canales:</strong></p>
+                    <ul>
+                        <li>Status reports</li>
+                        <li>Daily standups</li>
+                        <li>Retrospectivas</li>
+                        <li>1:1s (empleado → manager)</li>
+                        <li>Encuestas de satisfacción</li>
+                        <li>Buzones de sugerencias</li>
+                    </ul>
+                    
+                    <p><strong>Ejemplo en IT:</strong></p>
+                    <p><em>Un developer escribe en el daily standup:</em></p>
+                    <p style="background: #f8fafc; padding: 15px; border-radius: 8px; margin: 10px 0;">"Ayer: terminé el feature de login. Hoy: voy a empezar con el registro. Bloqueado por: necesito acceso a la base de datos de staging para testear."</p>
+                    
+                    <p><strong>Ventajas:</strong></p>
+                    <ul>
+                        <li>✅ Los líderes conocen la realidad</li>
+                        <li>✅ Detección temprana de problemas</li>
+                        <li>✅ Empleados se sienten escuchados</li>
+                        <li>✅ Ideas de mejora desde quienes hacen el trabajo</li>
+                    </ul>
+                    
+                    <p><strong>Desventajas:</strong></p>
+                    <ul>
+                        <li>❌ Puede ser filtrada o distorsionada</li>
+                        <li>❌ Miedo a dar malas noticias</li>
+                        <li>❌ Puede abrumar a los managers</li>
+                        <li>❌ No siempre es escuchada</li>
+                    </ul>
+
+                    <h4>El síndrome del "shoot the messenger"</h4>
+                    <p>En organizaciones tóxicas, quien trae malas noticias es castigado:</p>
+                    <p style="background: #fee2e2; padding: 15px; border-radius: 8px; margin: 10px 0;"><strong>Developer:</strong> "Jefe, creo que no vamos a llegar con el deadline. Hay problemas técnicos."<br>
+                    <strong>Jefe tóxico:</strong> "¿Cómo que no? ¡Tienen que llegar! ¡Trabajen más horas!"<br>
+                    <strong>Resultado:</strong> Nadie vuelve a reportar problemas. Los problemas explotan después.</p>
+                    
+                    <p>En organizaciones saludables, se <strong>recompensa la transparencia</strong>:</p>
+                    <p style="background: #d1fae5; padding: 15px; border-radius: 8px; margin: 10px 0;"><strong>Developer:</strong> "Jefe, creo que no vamos a llegar con el deadline. Hay problemas técnicos."<br>
+                    <strong>Jefe saludable:</strong> "Gracias por avisarme a tiempo. Contame más. ¿Qué necesitás? ¿Recortamos scope o movemos la fecha?"<br>
+                    <strong>Resultado:</strong> Los problemas se resuelven antes de que exploten.</p>
+
+                    <h3>COMUNICACIÓN HORIZONTAL (Lateral)</h3>
+                    <p><strong>Fluye entre personas del mismo nivel jerárquico.</strong></p>
+                    <p>Es la comunicación <strong>entre pares, colegas, compañeros</strong>.</p>
+                    
+                    <p><strong>Contenido típico:</strong></p>
+                    <ul>
+                        <li>Coordinación de tareas</li>
+                        <li>Intercambio de información</li>
+                        <li>Resolución de problemas entre equipos</li>
+                        <li>Apoyo mutuo</li>
+                        <li>Construcción de relaciones</li>
+                    </ul>
+                    
+                    <p><strong>Canales:</strong></p>
+                    <ul>
+                        <li>Reuniones de equipo</li>
+                        <li>Slack entre compañeros</li>
+                        <li>Code reviews (peer-to-peer)</li>
+                        <li>Pair programming</li>
+                        <li>Conversaciones informales</li>
+                    </ul>
+                    
+                    <p><strong>Ejemplo en IT:</strong></p>
+                    <p><em>En el canal de Slack #backend:</em></p>
+                    <p style="background: #f8fafc; padding: 15px; border-radius: 8px; margin: 10px 0;"><strong>Dev A:</strong> "Che, ¿alguien sabe cómo hacer un JOIN con esta tabla? Vengo peleando hace 1 hora."<br>
+                    <strong>Dev B:</strong> "Sí, probá esto: [código]. Tuve el mismo problema la semana pasada."<br>
+                    <strong>Dev A:</strong> "Gracias! Funcionó perfecto."</p>
+                    
+                    <p><strong>Ventajas:</strong></p>
+                    <ul>
+                        <li>✅ Rápida (no pasa por jerarquías)</li>
+                        <li>✅ Espontánea y flexible</li>
+                        <li>✅ Fomenta colaboración</li>
+                        <li>✅ Reduce dependencia del manager</li>
+                    </ul>
+                    
+                    <p><strong>Desventajas:</strong></p>
+                    <ul>
+                        <li>❌ Puede crear silos (solo hablan entre ellos)</li>
+                        <li>❌ Información importante puede no llegar a managers</li>
+                        <li>❌ Conflictos sin mediación</li>
+                        <li>❌ Puede ser ineficiente si no hay coordinación</li>
+                    </ul>
+
+                    <div class="info-box sabias">
+                        <h4>💡 ¿LO SABÍAS? - El caso Spotify: squads y comunicación horizontal</h4>
+                        <p><strong>Spotify</strong> reorganizó su empresa en <strong>"squads"</strong> (equipos pequeños, autónomos, cross-funcionales).</p>
+                        
+                        <p><strong>Cada squad:</strong></p>
+                        <ul>
+                            <li>Es autónomo (toma sus propias decisiones)</li>
+                            <li>Tiene todo lo necesario (devs, designers, PM)</li>
+                            <li>Comunicación <strong>horizontal intensa</strong> dentro del squad</li>
+                            <li>Poca necesidad de comunicación jerárquica</li>
+                        </ul>
+                        
+                        <p><strong>Para evitar silos:</strong></p>
+                        <ul>
+                            <li>Guilds (comunidades de práctica por especialidad)</li>
+                            <li>Chapters (alineación vertical por rol)</li>
+                            <li>Tribes (conjunto de squads relacionados)</li>
+                        </ul>
+                        
+                        <p><strong>Resultado:</strong> Decisiones rápidas sin pasar por 5 niveles de managers.</p>
+                        
+                        <p><strong>Trade-off:</strong> Requiere equipos maduros y mucha confianza.</p>
+                    </div>
+
+                    <h3>COMUNICACIÓN DIAGONAL (Transversal)</h3>
+                    <p><strong>Fluye entre personas de diferentes niveles Y diferentes departamentos.</strong></p>
+                    <p>Es la comunicación que <strong>cruza jerarquía y áreas</strong>.</p>
+                    
+                    <p><strong>Ejemplo:</strong></p>
+                    <p>Un developer junior del equipo A consulta directamente a un senior del equipo B (sin pasar por sus managers).</p>
+                    
+                    <p><strong>Cuándo ocurre:</strong></p>
+                    <ul>
+                        <li>Proyectos multidisciplinarios</li>
+                        <li>Organizaciones matriciales</li>
+                        <li>Culturas flat (jerarquía plana)</li>
+                        <li>Urgencias</li>
+                    </ul>
+                    
+                    <p><strong>Ventajas:</strong></p>
+                    <ul>
+                        <li>✅ Velocidad extrema</li>
+                        <li>✅ Rompe silos</li>
+                        <li>✅ Aprovecha el conocimiento disponible</li>
+                    </ul>
+                    
+                    <p><strong>Desventajas:</strong></p>
+                    <ul>
+                        <li>❌ Puede generar conflictos</li>
+                        <li>❌ Managers se sienten "bypaseados"</li>
+                        <li>❌ Falta de control</li>
+                    </ul>
+
+                    <div class="info-box trampa">
+                        <h4>⚠️ TRAMPA TÍPICA #6</h4>
+                        <p><strong>ERROR COMÚN:</strong> "No reportar problemas hacia arriba es solo culpa del empleado tímido"</p>
+                        <p><strong>REALIDAD:</strong> Si los empleados NO comunican ascendentemente, es un problema <strong>cultural y del liderazgo</strong>.</p>
+                        
+                        <p><strong>Señales de mala comunicación ascendente:</strong></p>
+                        <ul>
+                            <li>Los managers se enteran de problemas cuando ya explotaron</li>
+                            <li>Proyectos fracasan "inesperadamente"</li>
+                            <li>Alta rotación de personal</li>
+                            <li>Empleados dicen "sí" a todo pero no cumplen</li>
+                        </ul>
+                        
+                        <p><strong>Causas:</strong></p>
+                        <ul>
+                            <li>Cultura del miedo</li>
+                            <li>"Shoot the messenger"</li>
+                            <li>Managers que no escuchan</li>
+                            <li>Falta de canales seguros</li>
+                        </ul>
+                        
+                        <p><strong>Solución:</strong></p>
+                        <ul>
+                            <li>Crear seguridad psicológica</li>
+                            <li>Recompensar transparencia</li>
+                            <li>Escuchar activamente</li>
+                            <li>Actuar sobre el feedback recibido</li>
+                        </ul>
+                    </div>
+
+                    <h3>TABLA COMPARATIVA</h3>
+                    
+                    <table>
+                        <tr>
+                            <th>DIRECCIÓN</th>
+                            <th>VELOCIDAD</th>
+                            <th>FORMALIDAD</th>
+                            <th>FRECUENCIA</th>
+                            <th>EJEMPLOS</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Descendente</strong></td>
+                            <td>Media-Lenta</td>
+                            <td>Alta</td>
+                            <td>Media</td>
+                            <td>Órdenes, políticas, feedback</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ascendente</strong></td>
+                            <td>Lenta</td>
+                            <td>Media-Alta</td>
+                            <td>Alta (daily, status)</td>
+                            <td>Reportes, problemas, sugerencias</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Horizontal</strong></td>
+                            <td>Rápida</td>
+                            <td>Baja</td>
+                            <td>Muy alta</td>
+                            <td>Coordinación entre pares</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Diagonal</strong></td>
+                            <td>Muy rápida</td>
+                            <td>Baja</td>
+                            <td>Baja</td>
+                            <td>Consultas cross-equipo</td>
+                        </tr>
+                    </table>
+
+                    <h3>CASO REAL: Bug crítico en producción</h3>
+                    <p>Veamos cómo las 4 direcciones se usan <strong>simultáneamente</strong> en una situación real:</p>
+                    
+                    <p><strong>SITUACIÓN:</strong> Las 14:30hs, un bug crítico tira producción.</p>
+                    
+                    <p><strong>14:31 - HORIZONTAL:</strong><br>
+                    Developer A le avisa a Developer B (mismo nivel): "Che, prod está caído, ¿ves algo raro en logs?"</p>
+                    
+                    <p><strong>14:32 - ASCENDENTE:</strong><br>
+                    Developer A avisa al Tech Lead: "Jefe, producción caída. Estamos investigando."</p>
+                    
+                    <p><strong>14:33 - DIAGONAL:</strong><br>
+                    Developer A contacta directamente a un Senior del equipo de Infra (otro equipo): "Marcos, ¿viste algo raro en los servers?"</p>
+                    
+                    <p><strong>14:40 - DESCENDENTE:</strong><br>
+                    Tech Lead envía mensaje al equipo: "Equipo, dejen todo. Prioridad 1: resolver este bug. Developer C, ayudá a A y B."</p>
+                    
+                    <p><strong>14:50 - ASCENDENTE:</strong><br>
+                    Tech Lead informa al CTO: "Bug identificado. Solución en deploy en 10 minutos."</p>
+                    
+                    <p><strong>15:00 - DESCENDENTE:</strong><br>
+                    CTO comunica a toda la empresa: "Problema resuelto. Gracias al equipo de backend por la respuesta rápida."</p>
+                    
+                    <p><strong>15:30 - HORIZONTAL:</strong><br>
+                    El equipo hace un mini postmortem: "¿Qué falló? ¿Cómo evitarlo?"</p>
+
+                    <h3>📦 CHECKLIST - Direcciones de Comunicación</h3>
+                    <p>Marcá lo que ya dominás:</p>
+                    
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> Comunicación descendente (top-down)
+                    </div>
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> Comunicación ascendente (bottom-up)
+                    </div>
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> Comunicación horizontal (lateral)
+                    </div>
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> Comunicación diagonal (transversal)
+                    </div>
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> Síndrome "shoot the messenger"
+                    </div>
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> Caso Spotify squads
+                    </div>
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> Cuándo usar cada dirección
+                    </div>
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> Las 4 direcciones en una crisis
+                    </div>
+                    <div class="checkbox-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> Responsabilidad de comunicar hacia arriba
+                    </div>
+
+                    <div class="complete-section">
+                        <h3>✅ Completá esta sección</h3>
+                        <button onclick="markComplete(5)">Marcar Bloque 5 como Completado</button>
+                    </div>
+                </div>
+
+                <!-- ============================================ -->
+                <!-- BLOQUE 6: BARRERAS -->
+                <!-- (El bloque 6 es MUY largo. Lo pongo completo acá) -->
+                <!-- ============================================ -->
+                <div class="content-block" id="block6">
+                    <h2>🚧 BARRERAS DE LA COMUNICACIÓN</h2>
+                    
+                    <span class="tag green">🟢 IMPRESCINDIBLE</span>
+                    
+                    <p>Las barreras son <strong>obstáculos que impiden o distorsionan la comunicación efectiva</strong>.</p>
+                    
+                    <p>Incluso con buenas intenciones, las barreras pueden hacer que el mensaje:</p>
+                    <ul>
+                        <li>No llegue al receptor</li>
+                        <li>Llegue distorsionado</li>
+                        <li>Sea malinterpretado</li>
+                        <li>Genere conflictos</li>
+                    </ul>
+
+                    <h3>1️⃣ BARRERAS FÍSICAS</h3>
+                    <p><strong>Son obstáculos materiales o ambientales que dificultan la comunicación.</strong></p>
+                    
+                    <p><strong>En oficina:</strong></p>
+                    <ul>
+                        <li>Ruido ambiental excesivo</li>
+                        <li>Oficinas cerradas que aíslan</li>
+                        <li>Mala acústica en salas de reunión</li>
+                        <li>Distancia física entre equipos</li>
+                    </ul>
+                    
+                    <p><strong>En remoto:</strong></p>
+                    <ul>
+                        <li>Mala conexión a internet</li>
+                        <li>Audio/video de baja calidad</li>
+                        <li>Plataformas que no funcionan</li>
+                        <li>Falta de herramientas adecuadas</li>
+                        <li>Diferencias de zona horaria</li>
+                    </ul>
+                    
+                    <p><strong>En equipos de desarrollo:</strong></p>
+                    <ul>
+                        <li>Falta de acceso a herramientas (no tengo permisos en Jira)</li>
+                        <li>Servidores caídos que impiden colaboración</li>
+                        <li>Hardware obsoleto (computadoras lentas)</li>
+                    </ul>
+                    
+                    <p><strong>¿Cómo superarlas?</strong></p>
+                    <ul>
+                        <li>✓ Invertir en buena infraestructura tecnológica</li>
+                        <li>✓ Usar herramientas confiables (Zoom, Slack, GitHub)</li>
+                        <li>✓ Habilitar accesos necesarios desde día 1</li>
+                        <li>✓ Tener backup plans (si Zoom falla, ir a Meet)</li>
+                        <li>✓ Respetar zonas horarias (no meetings a las 3am)</li>
+                    </ul>
+
+                    <h3>2️⃣ BARRERAS SEMÁNTICAS</h3>
+                    <p><strong>Relacionadas con el significado de las palabras, el lenguaje y los códigos.</strong></p>
+                    
+                    <p><strong>Jerga técnica:</strong></p>
+                    <p style="background: #fee2e2; padding: 15px; border-radius: 8px; margin: 10px 0;">"Deployá el hotfix en staging y si pasa el smoke test, lo mergeamos a main"</p>
+                    <p>Si el receptor no sabe qué es deploy, hotfix, staging, smoke test, merge, main → no entendió NADA.</p>
+                    
+                    <p><strong>Ambigüedad:</strong></p>
+                    <ul>
+                        <li>"Hacelo rápido" → ¿Cuán rápido? ¿Hoy? ¿Esta semana?</li>
+                        <li>"Está bien" → ¿Realmente bien o sarcástico?</li>
+                    </ul>
+                    
+                    <p><strong>Idiomas diferentes:</strong></p>
+                    <ul>
+                        <li>Equipo en Argentina + equipo en India</li>
