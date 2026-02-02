@@ -6,181 +6,153 @@
   <title>Aula | Ingresar</title>
   <link rel="stylesheet" href="../styles.css">
   <style>
-    .auth-wrap{max-width:520px;margin:40px auto;padding:0 16px;}
-    .auth-card{background:#fff;border-radius:18px;padding:18px;box-shadow:0 10px 24px rgba(0,0,0,.08)}
-    .auth-card input{width:100%;padding:12px;border-radius:12px;border:1px solid #dbe3f0;margin:8px 0}
-    .row{display:flex;gap:10px;flex-wrap:wrap}
-    .row button{flex:1;min-width:160px}
-    .msg{margin-top:10px;font-size:14px;white-space:pre-wrap}
-    .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-    .linkbtn{display:inline-block;background:#2563eb;color:#fff;padding:10px 14px;border-radius:12px;text-decoration:none;font-weight:600}
-    .mutedbtn{background:#eef2ff;color:#1e3a8a;border:0;padding:12px;border-radius:12px;font-weight:700;cursor:pointer}
-    .primarybtn{background:#2563eb;color:#fff;border:0;padding:12px;border-radius:12px;font-weight:700;cursor:pointer}
-    .small{opacity:.75;font-size:13px}
+    .wrap {
+      max-width: 520px;
+      margin: 40px auto;
+      padding: 0 16px;
+    }
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: 0 10px 24px rgba(0,0,0,.08);
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid #dbe3f0;
+      margin: 8px 0;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      border-radius: 12px;
+      border: 0;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .primary {
+      background: #2563eb;
+      color: white;
+    }
+    .muted {
+      background: #eef2ff;
+      color: #1e3a8a;
+    }
+    .msg {
+      margin-top: 12px;
+      font-size: 14px;
+      white-space: pre-wrap;
+    }
   </style>
 </head>
-<body>
-  <div class="auth-wrap">
-    <div class="topbar">
-      <a class="linkbtn" href="../index.html">← Volver al inicio</a>
-    </div>
 
-    <div class="auth-card">
-      <h1 style="margin-top:0">🔐 Aula - Ingresar</h1>
-      <p class="small" style="margin-top:-6px">
-        Registrate o entrá para guardar tu progreso y ver tus notas.
+<body>
+  <div class="wrap">
+    <a class="back-button" href="../index.html">← Volver al inicio</a>
+
+    <div class="card">
+      <h1>🔐 Aula – Ingresar</h1>
+      <p style="opacity:.75">
+        Registrate o ingresá para guardar tu progreso.
       </p>
 
       <label>Email</label>
-      <input id="email" type="email" placeholder="ej: alumno@gmail.com" />
+      <input id="email" type="email" placeholder="alumno@test.com" />
 
       <label>Contraseña</label>
       <input id="password" type="password" placeholder="mínimo 6 caracteres" />
 
-      <div class="row">
-        <button class="mutedbtn" id="btnSignup" type="button">Crear cuenta</button>
-        <button class="primarybtn" id="btnLogin" type="button">Entrar</button>
-      </div>
+      <button id="btnSignup" class="muted">Crear cuenta</button>
+      <button id="btnLogin" class="primary">Entrar</button>
 
-      <button class="mutedbtn" id="btnGoJoin" type="button" style="margin-top:10px;display:none;">
-        Ir a ingresar código del curso
-      </button>
-
-      <button class="mutedbtn" id="btnLogout" type="button" style="margin-top:10px;display:none;">
-        Cerrar sesión
-      </button>
-
-      <div class="msg" id="msg"></div>
-
-      <hr style="margin:16px 0;border:none;border-top:1px solid #e5e7eb;">
-      <p class="small">
-        🔎 Si algo falla, abrí <b>F12 → Console</b>. Esta página muestra el error real.
-      </p>
+      <div id="msg" class="msg"></div>
     </div>
   </div>
 
-  <!-- Supabase SDK (CDN) -->
+  <!-- SUPABASE SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <script>
-    // ============================
-    // 1) CONFIGURACIÓN (PEGAR ACÁ)
-    // ============================
-      const SUPABASE_URL = "https://qixsvvahwcycfyptvdxr.supabase.co";
-    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFpeHN2dmFod2N5Y2Z5cHR2ZHhyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzAwNTMxNzAsImV4cCI6MjA4NTYyOTE3MH0.MKJPJIspJzLMJ8TCSZQr3RLKwFum9HUUHfBKeNW0qb4"; // anon public legacy
+    /* ===============================
+       CONFIGURACIÓN SUPABASE
+       =============================== */
+    const SUPABASE_URL = "https://TU-PROYECTO.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOi..."; // anon public (legacy)
 
+    /* ===============================
+       INIT
+       =============================== */
+    const supabase = window.supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_ANON_KEY
+    );
 
-
-    // ============================
-    // 2) HELPERS
-    // ============================
     const $ = (id) => document.getElementById(id);
     const setMsg = (t) => $("msg").textContent = t;
 
-    function hardError(title, err) {
-      console.error(title, err);
-      const msg = (err && err.message) ? err.message : String(err);
-      setMsg("❌ " + msg);
-      alert("ERROR: " + msg);
-    }
+    /* ===============================
+       CREAR CUENTA
+       =============================== */
+    $("btnSignup").addEventListener("click", async () => {
+      const email = $("email").value.trim();
+      const password = $("password").value.trim();
 
-    // ============================
-    // 3) INIT SUPABASE
-    // ============================
-    console.log("Supabase SDK:", window.supabase);
+      if (!email) return setMsg("⚠️ Escribí un email.");
+      if (!password || password.length < 6)
+        return setMsg("⚠️ Contraseña mínima: 6 caracteres.");
 
-    if (!window.supabase?.createClient) {
-      setMsg("❌ No se cargó el SDK de Supabase (CDN). Revisá tu conexión o bloqueadores.");
-      alert("No se cargó Supabase SDK. Revisá F12 → Console.");
-      throw new Error("Supabase SDK not loaded");
-    }
+      setMsg("Creando cuenta...");
 
-    console.log("SUPABASE_URL:", SUPABASE_URL);
-    console.log("ANON prefix:", (SUPABASE_ANON_KEY || "").slice(0, 10));
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password
+      });
 
-    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+      console.log("SIGNUP data:", data);
+      console.log("SIGNUP error:", error);
 
-    // ============================
-    // 4) UI SESSION
-    // ============================
-    async function refreshUI() {
-      const { data: { session }, error } = await supabase.auth.getSession();
-      if (error) console.warn("getSession error:", error);
-
-      const logged = !!session?.user;
-      $("btnLogout").style.display = logged ? "block" : "none";
-      $("btnGoJoin").style.display = logged ? "block" : "none";
-
-      if (logged) {
-        setMsg("✅ Sesión iniciada.\nAhora ingresá el código del curso.");
-      } else {
-        setMsg("");
+      if (error) {
+        setMsg("❌ " + error.message);
+        alert(error.message);
+        return;
       }
-    }
 
-    // ============================
-    // 5) ACTIONS
-    // ============================
-    $("btnSignup").onclick = async () => {
-      try {
-        const email = $("email").value.trim();
-        const password = $("password").value.trim();
+      setMsg("✅ Cuenta creada. Ahora tocá «Entrar».");
+      alert("Cuenta creada correctamente ✅");
+    });
 
-        if (!email) return setMsg("⚠️ Escribí un email.");
-        if (!password || password.length < 6) return setMsg("⚠️ Contraseña: mínimo 6 caracteres.");
+    /* ===============================
+       LOGIN
+       =============================== */
+    $("btnLogin").addEventListener("click", async () => {
+      const email = $("email").value.trim();
+      const password = $("password").value.trim();
 
-        setMsg("Creando cuenta...");
-        console.log("SIGNUP try:", { email });
+      if (!email || !password)
+        return setMsg("⚠️ Completá email y contraseña.");
 
-        const { data, error } = await supabase.auth.signUp({ email, password });
+      setMsg("Ingresando...");
 
-        console.log("SIGNUP data:", data);
-        console.log("SIGNUP error:", error);
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password
+      });
 
-        if (error) return hardError("SIGNUP error", error);
+      console.log("LOGIN data:", data);
+      console.log("LOGIN error:", error);
 
-        setMsg("✅ Cuenta creada.\nAhora tocá 'Entrar' para iniciar sesión.");
-        alert("Cuenta creada ✅ Ahora tocá 'Entrar'.");
-      } catch (e) {
-        hardError("SIGNUP exception", e);
+      if (error) {
+        setMsg("❌ " + error.message);
+        alert(error.message);
+        return;
       }
-    };
 
-    $("btnLogin").onclick = async () => {
-      try {
-        const email = $("email").value.trim();
-        const password = $("password").value.trim();
-
-        if (!email) return setMsg("⚠️ Escribí un email.");
-        if (!password) return setMsg("⚠️ Escribí la contraseña.");
-
-        setMsg("Ingresando...");
-        console.log("LOGIN try:", { email });
-
-        const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-
-        console.log("LOGIN data:", data);
-        console.log("LOGIN error:", error);
-
-        if (error) return hardError("LOGIN error", error);
-
-        setMsg("✅ Listo. Redirigiendo a unirse...");
-        window.location.href = "./unirse.html";
-      } catch (e) {
-        hardError("LOGIN exception", e);
-      }
-    };
-
-    $("btnGoJoin").onclick = () => window.location.href = "./unirse.html";
-
-    $("btnLogout").onclick = async () => {
-      await supabase.auth.signOut();
-      setMsg("Sesión cerrada.");
-      await refreshUI();
-    };
-
-    // Start
-    refreshUI();
+      setMsg("✅ Ingreso correcto. Redirigiendo...");
+      window.location.href = "./unirse.html";
+    });
   </script>
 </body>
 </html>
