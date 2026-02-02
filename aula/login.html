@@ -108,10 +108,11 @@
 
       setMsg("Creando cuenta...");
 
-      const { data, error } = await supabase.auth.signUp({
-        email,
-        password
-      });
+     const { data, error } = await supabaseClient.auth.signUp({
+  email,
+  password
+});
+
 
       console.log("SIGNUP data:", data);
       console.log("SIGNUP error:", error);
@@ -138,10 +139,11 @@
 
       setMsg("Ingresando...");
 
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email,
-        password
-      });
+    const { data, error } = await supabaseClient.auth.signInWithPassword({
+  email,
+  password
+});
+
 
       console.log("LOGIN data:", data);
       console.log("LOGIN error:", error);
