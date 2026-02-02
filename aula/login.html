@@ -4,6 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Aula | Ingresar</title>
+  <!-- VERSION: LOGIN LIMPIO 2026-02-02 -->
+
   <link rel="stylesheet" href="../styles.css">
   <style>
     .wrap {
@@ -85,7 +87,7 @@
     /* ===============================
        INIT
        =============================== */
-    const supabase = window.supabase.createClient(
+    const supabaseClient = window.supabase.createClient(
       SUPABASE_URL,
       SUPABASE_ANON_KEY
     );
