@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aula | Unirse</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .wrap{max-width:520px;margin:40px auto;padding:0 16px;}
+    .card{background:#fff;border-radius:18px;padding:18px;box-shadow:0 10px 24px rgba(0,0,0,.08)}
+    input{width:100%;padding:12px;border-radius:12px;border:1px solid #dbe3f0;margin:8px 0}
+    button{width:100%;padding:12px;border-radius:12px;border:0;font-weight:800;cursor:pointer}
+    .primary{background:#16a34a;color:#fff}
+    .muted{background:#eef2ff;color:#1e3a8a;margin-top:10px}
+    .msg{margin-top:10px;font-size:14px}
+    .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+    .linkbtn{display:inline-block;background:#2563eb;color:#fff;padding:10px 14px;border-radius:12px;text-decoration:none;font-weight:600}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="linkbtn" href="../index.html">← Volver al inicio</a>
+      <a class="linkbtn" href="./login.html">Login</a>
+    </div>
+
+    <div class="card">
+      <h1 style="margin-top:0">🔑 Unirse a un curso</h1>
+      <p style="opacity:.8;margin-top:-6px">Ingresá el código del curso (ej: <b>FG4A-2026</b>).</p>
+
+      <label>Código</label>
+      <input id="code" type="text" placeholder="FG4A-2026" />
+
+      <button class="primary" id="btnJoin">Unirme</button>
+      <button class="muted" id="btnLogout">Cerrar sesión</button>
+
+      <div class="msg" id="msg"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const SUPABASE_URL = "https://TU-PROYECTO.supabase.co";
+    const SUPABASE_ANON_KEY = "TU_ANON_KEY";
+    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    const $ = (id) => document.getElementById(id);
+    const setMsg = (t) => $("msg").textContent = t;
+
+    async function mustBeLoggedIn() {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session?.user) {
+        window.location.href = "./login.html";
+        return null;
+      }
+      return session.user;
+    }
+
+    $("btnLogout").onclick = async () => {
+      await supabase.auth.signOut();
+      window.location.href = "./login.html";
+    };
+
+    $("btnJoin").onclick = async () => {
+      const user = await mustBeLoggedIn();
+      if (!user) return;
+
+      const code = $("code").value.trim();
+      if (!code) return setMsg("⚠️ Escribí un código.");
+
+      setMsg("Buscando curso...");
+
+      const { data: course, error: courseErr } = await supabase
+        .from("courses")
+        .select("id,name,year_label,school,academic_year,enrollment_code,is_active")
+        .eq("enrollment_code", code)
+        .maybeSingle();
+
+      if (courseErr) return setMsg("❌ " + courseErr.message);
+      if (!course) return setMsg("❌ Código inválido. Revisalo y probá de nuevo.");
+      if (!course.is_active) return setMsg("⚠️ Ese curso está inactivo.");
+
+      setMsg("Creando inscripción...");
+
+      const { error: enrollErr } = await supabase
+        .from("enrollments")
+        .insert({ course_id: course.id, user_id: user.id });
+
+      // Si ya estaba inscripto, lo tratamos como OK
+      if (enrollErr && !String(enrollErr.message).toLowerCase().includes("duplicate")) {
+        return setMsg("❌ " + enrollErr.message);
+      }
+
+      setMsg("✅ Listo. En el paso 3 te muestro tu panel y progreso real.");
+      // Por ahora volvemos al inicio o a la unidad:
+      // Podés cambiar esto después a panel.html
+      setTimeout(() => { window.location.href = "../index.html"; }, 900);
+    };
+
+    mustBeLoggedIn();
+  </script>
+</body>
+</html>
