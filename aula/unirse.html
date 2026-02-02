@@ -12,9 +12,10 @@
     button{width:100%;padding:12px;border-radius:12px;border:0;font-weight:800;cursor:pointer}
     .primary{background:#16a34a;color:#fff}
     .muted{background:#eef2ff;color:#1e3a8a;margin-top:10px}
-    .msg{margin-top:10px;font-size:14px}
+    .msg{margin-top:10px;font-size:14px;white-space:pre-wrap}
     .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
     .linkbtn{display:inline-block;background:#2563eb;color:#fff;padding:10px 14px;border-radius:12px;text-decoration:none;font-weight:600}
+    .small{opacity:.75;font-size:13px}
   </style>
 </head>
 <body>
@@ -26,29 +27,56 @@
 
     <div class="card">
       <h1 style="margin-top:0">🔑 Unirse a un curso</h1>
-      <p style="opacity:.8;margin-top:-6px">Ingresá el código del curso (ej: <b>FG4A-2026</b>).</p>
+      <p class="small" style="margin-top:-6px">
+        Ingresá el código del curso (ej: <b>FG4A-2026</b>).
+      </p>
 
       <label>Código</label>
       <input id="code" type="text" placeholder="FG4A-2026" />
 
-      <button class="primary" id="btnJoin">Unirme</button>
-      <button class="muted" id="btnLogout">Cerrar sesión</button>
+      <button class="primary" id="btnJoin" type="button">Unirme</button>
+      <button class="muted" id="btnLogout" type="button">Cerrar sesión</button>
 
       <div class="msg" id="msg"></div>
+
+      <hr style="margin:16px 0;border:none;border-top:1px solid #e5e7eb;">
+      <p class="small">
+        🔎 Si algo falla, abrí <b>F12 → Console</b>. Esta página muestra el error real.
+      </p>
     </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
   <script>
-     const SUPABASE_URL = "https://qixsvvahwcycfyptvdxr.supabase.co";
-    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFpeHN2dmFod2N5Y2Z5cHR2ZHhyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzAwNTMxNzAsImV4cCI6MjA4NTYyOTE3MH0.MKJPJIspJzLMJ8TCSZQr3RLKwFum9HUUHfBKeNW0qb4"; // anon public (legacy)
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+    // ============================
+    // 1) CONFIGURACIÓN (PEGAR ACÁ)
+    // ============================
+    const SUPABASE_URL = "https://TU-PROYECTO.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOi..."; // anon public legacy
 
     const $ = (id) => document.getElementById(id);
     const setMsg = (t) => $("msg").textContent = t;
 
+    function hardError(title, err) {
+      console.error(title, err);
+      const msg = (err && err.message) ? err.message : String(err);
+      setMsg("❌ " + msg);
+      alert("ERROR: " + msg);
+    }
+
+    if (!window.supabase?.createClient) {
+      setMsg("❌ No se cargó el SDK de Supabase (CDN).");
+      alert("No se cargó Supabase SDK. Revisá F12 → Console.");
+      throw new Error("Supabase SDK not loaded");
+    }
+
+    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
     async function mustBeLoggedIn() {
-      const { data: { session } } = await supabase.auth.getSession();
+      const { data: { session }, error } = await supabase.auth.getSession();
+      if (error) console.warn("getSession error:", error);
+
       if (!session?.user) {
         window.location.href = "./login.html";
         return null;
@@ -62,39 +90,49 @@ const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
     };
 
     $("btnJoin").onclick = async () => {
-      const user = await mustBeLoggedIn();
-      if (!user) return;
+      try {
+        const user = await mustBeLoggedIn();
+        if (!user) return;
 
-      const code = $("code").value.trim();
-      if (!code) return setMsg("⚠️ Escribí un código.");
+        const code = $("code").value.trim();
+        if (!code) return setMsg("⚠️ Escribí un código.");
 
-      setMsg("Buscando curso...");
+        setMsg("Buscando curso...");
 
-      const { data: course, error: courseErr } = await supabase
-        .from("courses")
-        .select("id,name,year_label,school,academic_year,enrollment_code,is_active")
-        .eq("enrollment_code", code)
-        .maybeSingle();
+        // 1) Buscar curso por enrollment_code
+        const { data: course, error: courseErr } = await supabase
+          .from("courses")
+          .select("id,name,year_label,school,academic_year,enrollment_code,is_active")
+          .eq("enrollment_code", code)
+          .maybeSingle();
 
-      if (courseErr) return setMsg("❌ " + courseErr.message);
-      if (!course) return setMsg("❌ Código inválido. Revisalo y probá de nuevo.");
-      if (!course.is_active) return setMsg("⚠️ Ese curso está inactivo.");
+        console.log("COURSE:", course);
+        console.log("COURSE error:", courseErr);
 
-      setMsg("Creando inscripción...");
+        if (courseErr) return hardError("COURSE error", courseErr);
+        if (!course) return setMsg("❌ Código inválido. Revisalo y probá de nuevo.");
+        if (!course.is_active) return setMsg("⚠️ Ese curso está inactivo.");
 
-      const { error: enrollErr } = await supabase
-        .from("enrollments")
-        .insert({ course_id: course.id, user_id: user.id });
+        setMsg("Creando inscripción...");
 
-      // Si ya estaba inscripto, lo tratamos como OK
-      if (enrollErr && !String(enrollErr.message).toLowerCase().includes("duplicate")) {
-        return setMsg("❌ " + enrollErr.message);
+        // 2) Insert enroll
+        const { error: enrollErr } = await supabase
+          .from("enrollments")
+          .insert({ course_id: course.id, user_id: user.id });
+
+        console.log("ENROLL error:", enrollErr);
+
+        // Si ya estaba inscripto, lo tratamos como OK
+        if (enrollErr && !String(enrollErr.message).toLowerCase().includes("duplicate")) {
+          return hardError("ENROLL error", enrollErr);
+        }
+
+        setMsg("✅ Listo.\nYa estás inscripto.\nVolviendo al inicio...");
+        setTimeout(() => { window.location.href = "../index.html"; }, 900);
+
+      } catch (e) {
+        hardError("JOIN exception", e);
       }
-
-      setMsg("✅ Listo. En el paso 3 te muestro tu panel y progreso real.");
-      // Por ahora volvemos al inicio o a la unidad:
-      // Podés cambiar esto después a panel.html
-      setTimeout(() => { window.location.href = "../index.html"; }, 900);
     };
 
     mustBeLoggedIn();
