@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aula | Ingresar</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .auth-wrap{max-width:520px;margin:40px auto;padding:0 16px;}
+    .auth-card{background:#fff;border-radius:18px;padding:18px;box-shadow:0 10px 24px rgba(0,0,0,.08)}
+    .auth-card input{width:100%;padding:12px;border-radius:12px;border:1px solid #dbe3f0;margin:8px 0}
+    .row{display:flex;gap:10px;flex-wrap:wrap}
+    .row button{flex:1;min-width:160px}
+    .msg{margin-top:10px;font-size:14px}
+    .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+    .linkbtn{display:inline-block;background:#2563eb;color:#fff;padding:10px 14px;border-radius:12px;text-decoration:none;font-weight:600}
+    .mutedbtn{background:#eef2ff;color:#1e3a8a;border:0;padding:12px;border-radius:12px;font-weight:700;cursor:pointer}
+    .primarybtn{background:#2563eb;color:#fff;border:0;padding:12px;border-radius:12px;font-weight:700;cursor:pointer}
+  </style>
+</head>
+<body>
+  <div class="auth-wrap">
+    <div class="topbar">
+      <a class="linkbtn" href="../index.html">← Volver al inicio</a>
+    </div>
+
+    <div class="auth-card">
+      <h1 style="margin-top:0">🔐 Aula - Ingresar</h1>
+      <p style="opacity:.8;margin-top:-6px">Registrate o entrá para guardar tu progreso y ver tus notas.</p>
+
+      <label>Email</label>
+      <input id="email" type="email" placeholder="ej: alumno@gmail.com" />
+
+      <label>Contraseña</label>
+      <input id="password" type="password" placeholder="mínimo 6 caracteres" />
+
+      <div class="row">
+        <button class="mutedbtn" id="btnSignup">Crear cuenta</button>
+        <button class="primarybtn" id="btnLogin">Entrar</button>
+      </div>
+
+      <button class="mutedbtn" id="btnGoJoin" style="margin-top:10px;display:none;">Ir a ingresar código del curso</button>
+      <button class="mutedbtn" id="btnLogout" style="margin-top:10px;display:none;">Cerrar sesión</button>
+
+      <div class="msg" id="msg"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    // ✅ Pegá tus credenciales
+    const SUPABASE_URL = "https://TU-PROYECTO.supabase.co";
+    const SUPABASE_ANON_KEY = "TU_ANON_KEY";
+    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    const $ = (id) => document.getElementById(id);
+    const setMsg = (t) => $("msg").textContent = t;
+
+    async function refreshUI() {
+      const { data: { session } } = await supabase.auth.getSession();
+      const logged = !!session?.user;
+
+      $("btnLogout").style.display = logged ? "block" : "none";
+      $("btnGoJoin").style.display = logged ? "block" : "none";
+
+      if (logged) setMsg("✅ Sesión iniciada. Ahora ingresá el código del curso.");
+      else setMsg("");
+    }
+
+    $("btnSignup").onclick = async () => {
+      setMsg("Creando cuenta...");
+      const email = $("email").value.trim();
+      const password = $("password").value.trim();
+      const { error } = await supabase.auth.signUp({ email, password });
+      if (error) return setMsg("❌ " + error.message);
+      setMsg("✅ Cuenta creada. Ahora entrá (Entrar).");
+    };
+
+    $("btnLogin").onclick = async () => {
+      setMsg("Ingresando...");
+      const email = $("email").value.trim();
+      const password = $("password").value.trim();
+      const { error } = await supabase.auth.signInWithPassword({ email, password });
+      if (error) return setMsg("❌ " + error.message);
+      window.location.href = "./unirse.html";
+    };
+
+    $("btnGoJoin").onclick = () => window.location.href = "./unirse.html";
+
+    $("btnLogout").onclick = async () => {
+      await supabase.auth.signOut();
+      setMsg("Sesión cerrada.");
+      await refreshUI();
+    };
+
+    refreshUI();
+  </script>
+</body>
+</html>
