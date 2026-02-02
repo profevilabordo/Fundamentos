@@ -11,11 +11,12 @@
     .auth-card input{width:100%;padding:12px;border-radius:12px;border:1px solid #dbe3f0;margin:8px 0}
     .row{display:flex;gap:10px;flex-wrap:wrap}
     .row button{flex:1;min-width:160px}
-    .msg{margin-top:10px;font-size:14px}
+    .msg{margin-top:10px;font-size:14px;white-space:pre-wrap}
     .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
     .linkbtn{display:inline-block;background:#2563eb;color:#fff;padding:10px 14px;border-radius:12px;text-decoration:none;font-weight:600}
     .mutedbtn{background:#eef2ff;color:#1e3a8a;border:0;padding:12px;border-radius:12px;font-weight:700;cursor:pointer}
     .primarybtn{background:#2563eb;color:#fff;border:0;padding:12px;border-radius:12px;font-weight:700;cursor:pointer}
+    .small{opacity:.75;font-size:13px}
   </style>
 </head>
 <body>
@@ -26,7 +27,9 @@
 
     <div class="auth-card">
       <h1 style="margin-top:0">🔐 Aula - Ingresar</h1>
-      <p style="opacity:.8;margin-top:-6px">Registrate o entrá para guardar tu progreso y ver tus notas.</p>
+      <p class="small" style="margin-top:-6px">
+        Registrate o entrá para guardar tu progreso y ver tus notas.
+      </p>
 
       <label>Email</label>
       <input id="email" type="email" placeholder="ej: alumno@gmail.com" />
@@ -35,54 +38,139 @@
       <input id="password" type="password" placeholder="mínimo 6 caracteres" />
 
       <div class="row">
-        <button class="mutedbtn" id="btnSignup">Crear cuenta</button>
-        <button class="primarybtn" id="btnLogin">Entrar</button>
+        <button class="mutedbtn" id="btnSignup" type="button">Crear cuenta</button>
+        <button class="primarybtn" id="btnLogin" type="button">Entrar</button>
       </div>
 
-      <button class="mutedbtn" id="btnGoJoin" style="margin-top:10px;display:none;">Ir a ingresar código del curso</button>
-      <button class="mutedbtn" id="btnLogout" style="margin-top:10px;display:none;">Cerrar sesión</button>
+      <button class="mutedbtn" id="btnGoJoin" type="button" style="margin-top:10px;display:none;">
+        Ir a ingresar código del curso
+      </button>
+
+      <button class="mutedbtn" id="btnLogout" type="button" style="margin-top:10px;display:none;">
+        Cerrar sesión
+      </button>
 
       <div class="msg" id="msg"></div>
+
+      <hr style="margin:16px 0;border:none;border-top:1px solid #e5e7eb;">
+      <p class="small">
+        🔎 Si algo falla, abrí <b>F12 → Console</b>. Esta página muestra el error real.
+      </p>
     </div>
   </div>
 
+  <!-- Supabase SDK (CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script>
-    // ✅ Pegá tus credenciales
-    const SUPABASE_URL = "https://qixsvvahwcycfyptvdxr.supabase.co";
-     const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFpeHN2dmFod2N5Y2Z5cHR2ZHhyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzAwNTMxNzAsImV4cCI6MjA4NTYyOTE3MH0.MKJPJIspJzLMJ8TCSZQr3RLKwFum9HUUHfBKeNW0qb4"; // anon public (legacy)
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
+  <script>
+    // ============================
+    // 1) CONFIGURACIÓN (PEGAR ACÁ)
+    // ============================
+    // ✅ Project URL (Settings → API → Project URL)
+    const SUPABASE_URL = "https://TU-PROYECTO.supabase.co";
+
+    // ✅ Legacy anon public (Settings → API → Legacy anon → "anon public" que empieza con eyJ...)
+    // ❌ NO PEGAR service_role / secret
+    const SUPABASE_ANON_KEY = "eyJhbGciOi...";
+
+    // ============================
+    // 2) HELPERS
+    // ============================
     const $ = (id) => document.getElementById(id);
     const setMsg = (t) => $("msg").textContent = t;
 
-    async function refreshUI() {
-      const { data: { session } } = await supabase.auth.getSession();
-      const logged = !!session?.user;
+    function hardError(title, err) {
+      console.error(title, err);
+      const msg = (err && err.message) ? err.message : String(err);
+      setMsg("❌ " + msg);
+      alert("ERROR: " + msg);
+    }
 
+    // ============================
+    // 3) INIT SUPABASE
+    // ============================
+    console.log("Supabase SDK:", window.supabase);
+
+    if (!window.supabase?.createClient) {
+      setMsg("❌ No se cargó el SDK de Supabase (CDN). Revisá tu conexión o bloqueadores.");
+      alert("No se cargó Supabase SDK. Revisá F12 → Console.");
+      throw new Error("Supabase SDK not loaded");
+    }
+
+    console.log("SUPABASE_URL:", SUPABASE_URL);
+    console.log("ANON prefix:", (SUPABASE_ANON_KEY || "").slice(0, 10));
+
+    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    // ============================
+    // 4) UI SESSION
+    // ============================
+    async function refreshUI() {
+      const { data: { session }, error } = await supabase.auth.getSession();
+      if (error) console.warn("getSession error:", error);
+
+      const logged = !!session?.user;
       $("btnLogout").style.display = logged ? "block" : "none";
       $("btnGoJoin").style.display = logged ? "block" : "none";
 
-      if (logged) setMsg("✅ Sesión iniciada. Ahora ingresá el código del curso.");
-      else setMsg("");
+      if (logged) {
+        setMsg("✅ Sesión iniciada.\nAhora ingresá el código del curso.");
+      } else {
+        setMsg("");
+      }
     }
 
+    // ============================
+    // 5) ACTIONS
+    // ============================
     $("btnSignup").onclick = async () => {
-      setMsg("Creando cuenta...");
-      const email = $("email").value.trim();
-      const password = $("password").value.trim();
-      const { error } = await supabase.auth.signUp({ email, password });
-      if (error) return setMsg("❌ " + error.message);
-      setMsg("✅ Cuenta creada. Ahora entrá (Entrar).");
+      try {
+        const email = $("email").value.trim();
+        const password = $("password").value.trim();
+
+        if (!email) return setMsg("⚠️ Escribí un email.");
+        if (!password || password.length < 6) return setMsg("⚠️ Contraseña: mínimo 6 caracteres.");
+
+        setMsg("Creando cuenta...");
+        console.log("SIGNUP try:", { email });
+
+        const { data, error } = await supabase.auth.signUp({ email, password });
+
+        console.log("SIGNUP data:", data);
+        console.log("SIGNUP error:", error);
+
+        if (error) return hardError("SIGNUP error", error);
+
+        setMsg("✅ Cuenta creada.\nAhora tocá 'Entrar' para iniciar sesión.");
+        alert("Cuenta creada ✅ Ahora tocá 'Entrar'.");
+      } catch (e) {
+        hardError("SIGNUP exception", e);
+      }
     };
 
     $("btnLogin").onclick = async () => {
-      setMsg("Ingresando...");
-      const email = $("email").value.trim();
-      const password = $("password").value.trim();
-      const { error } = await supabase.auth.signInWithPassword({ email, password });
-      if (error) return setMsg("❌ " + error.message);
-      window.location.href = "./unirse.html";
+      try {
+        const email = $("email").value.trim();
+        const password = $("password").value.trim();
+
+        if (!email) return setMsg("⚠️ Escribí un email.");
+        if (!password) return setMsg("⚠️ Escribí la contraseña.");
+
+        setMsg("Ingresando...");
+        console.log("LOGIN try:", { email });
+
+        const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+
+        console.log("LOGIN data:", data);
+        console.log("LOGIN error:", error);
+
+        if (error) return hardError("LOGIN error", error);
+
+        setMsg("✅ Listo. Redirigiendo a unirse...");
+        window.location.href = "./unirse.html";
+      } catch (e) {
+        hardError("LOGIN exception", e);
+      }
     };
 
     $("btnGoJoin").onclick = () => window.location.href = "./unirse.html";
@@ -93,6 +181,7 @@ const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
       await refreshUI();
     };
 
+    // Start
     refreshUI();
   </script>
 </body>
